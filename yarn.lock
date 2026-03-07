@@ -2256,10 +2256,10 @@ eslint-plugin-import@2.32.0:
     string.prototype.trimend "^1.0.9"
     tsconfig-paths "^3.15.0"
 
-eslint-plugin-only-warn@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-only-warn/-/eslint-plugin-only-warn-1.1.0.tgz#c6ddc37ddc4e72c121f07be565fcb7b6671fe78a"
-  integrity sha512-2tktqUAT+Q3hCAU0iSf4xAN1k9zOpjK5WO8104mB0rT/dGhOa09582HN5HlbxNbPRZ0THV7nLGvzugcNOSjzfA==
+eslint-plugin-only-warn@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-only-warn/-/eslint-plugin-only-warn-1.2.0.tgz#f1b7df805d220169ae5857f7e169b95e84a44c3b"
+  integrity sha512-pBxMNbkRf/sx8LK1YIc67Opgh1zmNXOUO+MHcevdnqCeNeTWrw7g0cxFO0yPrrzYGpvlriUjQ8yMPPtRF6TDUw==
 
 eslint-scope@^5.1.1:
   version "5.1.1"
