@@ -38,7 +38,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@thi.ng/zipper": "1.0.3",
+    "@thi.ng/zipper": "2.1.168",
     "@types/moo": "0.5.10",
     "klona": "2.0.6",
     "moo": "0.5.3"
