@@ -239,6 +239,7 @@ export class EndBuilder<Ctx, T extends Node> extends TerminalBuilder<
     const matcher = this.builder.build();
     const matchers = matcher instanceof SeqMatcher ? matcher.seq : [matcher];
     matchers.push(new EndMatcher());
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     return new SeqMatcher<Ctx>({ matchers });
   }
 }

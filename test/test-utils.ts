@@ -85,7 +85,7 @@ export function loadOutputJson<T>(
     try {
       const existingOutput = loadSampleFile(sampleFile, sampleRoot);
       result = JSON.parse(existingOutput) as T;
-    } catch (err) {
+    } catch {
       writeSamples();
     }
   }
