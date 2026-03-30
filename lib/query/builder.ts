@@ -23,8 +23,8 @@ import { CommentMatcher } from './matchers/comment-matcher';
 import { NumMatcher } from './matchers/num-matcher';
 import {
   StrContentMatcher,
-  StrContentMatcherHandler,
-  StrNodeChildMatcher,
+  type StrContentMatcherHandler,
+  type StrNodeChildMatcher,
   StrNodeMatcher,
   StrTplMatcher,
 } from './matchers/str-matcher';

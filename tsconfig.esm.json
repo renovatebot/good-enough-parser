@@ -5,7 +5,8 @@
     "outDir": "dist/esm",
     "module": "ES2015",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.esm",
-    "rootDir": "lib"
+    "rootDir": "lib",
+    "verbatimModuleSyntax": true
   },
   "exclude": ["test", "**/*.spec.ts"]
 }

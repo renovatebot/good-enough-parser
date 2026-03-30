@@ -1,6 +1,6 @@
 import {
-  Lexer as MooLexer,
-  Token as MooToken,
+  type Lexer as MooLexer,
+  type Token as MooToken,
   compile as mooCompile,
   states as mooStates,
 } from 'moo';

@@ -1,4 +1,4 @@
-import { WrappedTree, isTree } from '../../parser';
+import { type WrappedTree, isTree } from '../../parser';
 import type { Cursor, Tree } from '../../parser/types';
 import { safeHandler } from '../handler';
 import type {

@@ -17,6 +17,7 @@
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
+  "type": "commonjs",
   "scripts": {
     "lint": "run-s lint:*",
     "lint:types": "tsc --noEmit",
