@@ -44,11 +44,13 @@
     "moo": "0.5.3"
   },
   "devDependencies": {
+    "@containerbase/semantic-release-pnpm": "1.3.28",
     "@renovate/eslint-plugin": "https://github.com/renovatebot/eslint-plugin#v0.0.5",
     "@types/jest": "30.0.0",
     "@types/node": "22.19.15",
     "@typescript-eslint/eslint-plugin": "8.57.1",
     "@typescript-eslint/parser": "8.57.1",
+    "conventional-changelog-conventionalcommits": "9.3.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "8.10.2",
     "eslint-plugin-import": "2.32.0",
@@ -63,7 +65,7 @@
     "npm-run-all2": "8.0.4",
     "prettier": "3.8.1",
     "pretty-quick": "4.2.2",
-    "release-it": "15.11.0",
+    "semantic-release": "25.0.3",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
