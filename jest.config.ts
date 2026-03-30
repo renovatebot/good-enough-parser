@@ -1,21 +1,20 @@
 import { env } from 'node:process';
-import type { JestConfigWithTsJest } from 'ts-jest/dist/types';
+import { createDefaultPreset, type JestConfigWithTsJest } from 'ts-jest';
 
 const ci = !!env.CI;
 
+const presetConfig = createDefaultPreset({
+  diagnostics: ci,
+});
+
 const config: JestConfigWithTsJest = {
-  preset: 'ts-jest',
+  ...presetConfig,
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
     'jest-watch-select-projects',
     'jest-watch-suspend',
   ],
-  globals: {
-    'ts-jest': {
-      diagnostics: ci,
-    },
-  },
   reporters: ci
     ? [['github-actions', { silent: false }], 'summary']
     : ['default'],
