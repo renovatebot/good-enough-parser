@@ -13,7 +13,7 @@ jobs:
           - ubuntu
           - macos
           - windows
-        node-version:
+        node:
           - 22
         include:
           # too slow and too many tests to run them on all os
@@ -28,10 +28,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3.9.1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
           cache: 'yarn'
       - name: Install Dependencies
         run: yarn --frozen-lockfile
