@@ -1,10 +1,9 @@
 {
   "search.exclude": {
     "**/dist": true,
-    "**/__snapshots__": true,
-    "yarn.lock": true
+    "**/__snapshots__": true
   },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "editor.tabSize": 2
 }

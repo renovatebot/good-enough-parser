@@ -27,16 +27,13 @@ jobs:
     name: test-${{ matrix.os }}-${{ matrix.node }}
 
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3.9.1
+      - uses: containerbase/internal-tools/setup@9e2c008ec1b3662cb83d8ccdf68b2f0168c7f5d9 # v4.5.9
         with:
+          save-cache: true
           node-version: ${{ matrix.node }}
-          cache: 'yarn'
-      - name: Install Dependencies
-        run: yarn --frozen-lockfile
-      - run: yarn -s build
-      - run: yarn -s test
+
+      - run: pnpm build
+      - run: pnpm test
 
   # Catch-all required check for test matrix
   success:
