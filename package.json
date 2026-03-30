@@ -69,5 +69,6 @@
     "ttypescript": "1.5.15",
     "typescript": "4.9.5",
     "upath": "2.0.1"
-  }
+  },
+  "packageManager": "pnpm@10.32.1"
 }
