@@ -34,7 +34,7 @@
     "test": "run-s lint test:*",
     "test:unit": "jest",
     "clean": "rm -rf dist node_modules/.cache coverage",
-    "prepare:husky": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
