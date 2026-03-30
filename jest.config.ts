@@ -11,7 +11,6 @@ const config: JestConfigWithTsJest = {
   globals: {
     'ts-jest': {
       diagnostics: Boolean(process.env.CI),
-      compiler: 'ttypescript',
     },
   },
   verbose: true,
