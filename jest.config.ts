@@ -1,4 +1,7 @@
+import { env } from 'node:process';
 import type { JestConfigWithTsJest } from 'ts-jest/dist/types';
+
+const ci = !!env.CI;
 
 const config: JestConfigWithTsJest = {
   preset: 'ts-jest',
@@ -10,12 +13,19 @@ const config: JestConfigWithTsJest = {
   ],
   globals: {
     'ts-jest': {
-      diagnostics: Boolean(process.env.CI),
+      diagnostics: ci,
     },
   },
+  reporters: ci
+    ? [['github-actions', { silent: false }], 'summary']
+    : ['default'],
   verbose: true,
   collectCoverage: true,
   coveragePathIgnorePatterns: ['test-utils'],
+  coverageProvider: 'v8',
+  coverageReporters: ci
+    ? ['text-summary', 'json']
+    : ['text-summary', 'html', 'json'],
 };
 
 export default config;

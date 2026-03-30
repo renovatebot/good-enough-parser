@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-24.04
@@ -23,6 +26,7 @@ jobs:
       - lint
 
     strategy:
+      fail-fast: false
       matrix:
         os:
           - ubuntu
@@ -41,6 +45,9 @@ jobs:
 
     name: test-${{ matrix.os }}-${{ matrix.node }}
 
+    permissions:
+      id-token: write # required for codecov OIDC
+
     steps:
       - uses: containerbase/internal-tools/setup@9e2c008ec1b3662cb83d8ccdf68b2f0168c7f5d9 # v4.5.9
         with:
@@ -49,6 +56,13 @@ jobs:
 
       - run: pnpm build
       - run: pnpm jest
+
+      - name: Codecov coverage results
+        if: github.event_name != 'merge_group'
+        uses: codecov/codecov-action@75cd11691c0faa626561e295848008c8a7dddffe # v5.5.4
+        with:
+          use_oidc: true
+          flags: node${{ matrix.node }}-${{ runner.os }}
 
   # Catch-all required check for test matrix
   success:
@@ -59,6 +73,12 @@ jobs:
     timeout-minutes: 1
     if: always()
     steps:
+      - name: Fail for failed or skipped lint tests
+        if: |
+          needs.lint.result == 'failure' ||
+          needs.lint.result == 'skipped'
+        run: exit 1
+
       - name: Fail for failed or skipped test tests
         if: |
           needs.test.result == 'failure' ||
