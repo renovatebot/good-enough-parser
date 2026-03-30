@@ -24,7 +24,7 @@ describe('test-utils', () => {
     const outputFile = getSamplePath(sampleFile);
     try {
       rmSync(outputFile);
-    } catch (err) {
+    } catch {
       // no-op
     } finally {
       expect(existsSync(outputFile)).toBeFalsy();
