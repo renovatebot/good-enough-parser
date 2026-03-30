@@ -57,6 +57,14 @@ jobs:
       - run: pnpm build
       - run: pnpm jest
 
+      - name: Codecov test results
+        if: github.event_name != 'merge_group' && !cancelled()
+        uses: codecov/codecov-action@75cd11691c0faa626561e295848008c8a7dddffe # v5.5.4
+        with:
+          use_oidc: true
+          report_type: test_results
+          flags: node${{ matrix.node }}-${{ runner.os }}
+
       - name: Codecov coverage results
         if: github.event_name != 'merge_group'
         uses: codecov/codecov-action@75cd11691c0faa626561e295848008c8a7dddffe # v5.5.4

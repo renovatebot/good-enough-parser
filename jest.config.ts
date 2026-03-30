@@ -16,7 +16,18 @@ const config: JestConfigWithTsJest = {
     'jest-watch-suspend',
   ],
   reporters: ci
-    ? [['github-actions', { silent: false }], 'summary']
+    ? [
+        ['github-actions', { silent: false }],
+        [
+          'jest-junit',
+          {
+            outputDirectory: './coverage',
+            outputName: 'junit.xml',
+            classNameTemplate: '{filepath}',
+          },
+        ],
+        'summary',
+      ]
     : ['default'],
   verbose: true,
   collectCoverage: true,
