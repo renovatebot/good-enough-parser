@@ -61,9 +61,10 @@ import type {
   TreeBuilderOptions,
 } from './types';
 
-abstract class TerminalBuilder<Ctx, T extends Node>
-  implements QueryBuilder<Ctx, T>
-{
+abstract class TerminalBuilder<Ctx, T extends Node> implements QueryBuilder<
+  Ctx,
+  T
+> {
   abstract build(): Matcher<Ctx>;
 
   handler(fn: (context: Ctx, t: T) => Ctx): SeqBuilder<Ctx, T> {

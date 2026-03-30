@@ -120,13 +120,15 @@ export type StrBuilderOptionsBase<Ctx> =
   | StrContentBuilderOptionsBase<Ctx>
   | StrTreeBuilderOptionsBase<Ctx>;
 
-export interface StrContentBuilderOptions<Ctx>
-  extends StrContentBuilderOptionsBase<Ctx> {
+export interface StrContentBuilderOptions<
+  Ctx,
+> extends StrContentBuilderOptionsBase<Ctx> {
   type: 'str-content';
 }
 
-export interface StrTreeBuilderOptions<Ctx>
-  extends StrTreeBuilderOptionsBase<Ctx> {
+export interface StrTreeBuilderOptions<
+  Ctx,
+> extends StrTreeBuilderOptionsBase<Ctx> {
   type: 'str-tree';
 }
 
