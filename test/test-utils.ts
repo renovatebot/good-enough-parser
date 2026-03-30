@@ -8,6 +8,7 @@ import type { StatesMap, Token } from '../lib/lexer/types';
 function getCallerFileName(): string {
   let result: string | null = null;
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- we will restore it later
   const prepareStackTrace = Error.prepareStackTrace;
   const stackTraceLimit = Error.stackTraceLimit;
 
