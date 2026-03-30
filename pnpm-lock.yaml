@@ -22,8 +22,8 @@ importers:
         version: 0.5.3
     devDependencies:
       '@homer0/prettier-plugin-jsdoc':
-        specifier: 6.0.5
-        version: 6.0.5
+        specifier: 11.0.2
+        version: 11.0.2(prettier@3.8.1)
       '@renovate/eslint-plugin':
         specifier: https://github.com/renovatebot/eslint-plugin#v0.0.5
         version: '@renovatebot/eslint-plugin@https://codeload.github.com/renovatebot/eslint-plugin/tar.gz/1923e2e2776549cb25a2c6ea09915ee31bff6d05'
@@ -286,9 +286,11 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@homer0/prettier-plugin-jsdoc@6.0.5':
-    resolution: {integrity: sha512-yfAsz6fmZCToLeUq575ktaGqcoTsLmcbnV7y9UDA4lylcJmI5tKJxkzPcREhO7jjMucCdmL5KOt7zKBDu5v0Mg==}
-    engines: {node: '>=16'}
+  '@homer0/prettier-plugin-jsdoc@11.0.2':
+    resolution: {integrity: sha512-+BzWB8z61dExvX1Z5EjBHeregU8M51MyTJvxOQdalO0LhGAXoBesSZqU1HWe1DnxAZvY69ItwXfTtCyj2f+4gQ==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      prettier: ^3.5.3
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -2539,11 +2541,6 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@2.8.8:
-    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
-
   prettier@3.8.1:
     resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
@@ -2603,8 +2600,8 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
 
-  ramda@0.29.0:
-    resolution: {integrity: sha512-BBea6L67bYLtdbOqfp8f58fPMqEwx0doL+pAi8TZyp2YWz8R9G8z9x75CZI8W+ftqhFHCpEX2cRnUUXK130iKA==}
+  ramda@0.32.0:
+    resolution: {integrity: sha512-GQWAHhxhxWBWA8oIBr1XahFVjQ9Fic6MK9ikijfd4TZHfE2+urfk+irVlR5VOn48uwMgM+loRRBJd6Yjsbc0zQ==}
 
   rc@1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
@@ -3489,11 +3486,11 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@homer0/prettier-plugin-jsdoc@6.0.5':
+  '@homer0/prettier-plugin-jsdoc@11.0.2(prettier@3.8.1)':
     dependencies:
       comment-parser: 1.4.5
-      prettier: 2.8.8
-      ramda: 0.29.0
+      prettier: 3.8.1
+      ramda: 0.32.0
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -6233,8 +6230,6 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@2.8.8: {}
-
   prettier@3.8.1: {}
 
   pretty-format@29.7.0:
@@ -6303,7 +6298,7 @@ snapshots:
 
   quick-lru@5.1.1: {}
 
-  ramda@0.29.0: {}
+  ramda@0.32.0: {}
 
   rc@1.2.8:
     dependencies:
