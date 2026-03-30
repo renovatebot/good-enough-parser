@@ -6,7 +6,20 @@ on:
       - main
 
 jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: containerbase/internal-tools/setup@9e2c008ec1b3662cb83d8ccdf68b2f0168c7f5d9 # v4.5.9
+        with:
+          save-cache: true
+
+      - run: pnpm build
+      - run: pnpm lint
+
   test:
+    needs:
+      - lint
+
     strategy:
       matrix:
         os:
@@ -33,11 +46,12 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - run: pnpm build
-      - run: pnpm test
+      - run: pnpm jest
 
   # Catch-all required check for test matrix
   success:
     needs:
+      - lint
       - test
     runs-on: ubuntu-24.04
     timeout-minutes: 1
