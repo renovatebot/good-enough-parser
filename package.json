@@ -62,7 +62,7 @@
     "jest-watch-typeahead": "2.2.2",
     "npm-run-all2": "8.0.4",
     "prettier": "2.8.8",
-    "pretty-quick": "3.3.1",
+    "pretty-quick": "4.2.2",
     "release-it": "15.11.0",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
