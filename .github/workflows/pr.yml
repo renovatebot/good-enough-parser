@@ -13,7 +13,6 @@ jobs:
         with:
           save-cache: true
 
-      - run: pnpm build
       - run: pnpm lint
 
   test:
