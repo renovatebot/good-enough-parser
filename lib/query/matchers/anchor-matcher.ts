@@ -32,7 +32,7 @@ export class EndMatcher<Ctx> extends AbstractMatcher<Ctx> {
 
 export class VoidMatcher<
   Ctx,
-  T extends Tree | Token
+  T extends Tree | Token,
 > extends AbstractMatcher<Ctx> {
   private handler: (context: Ctx, t: T) => Ctx;
 
