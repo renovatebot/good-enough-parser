@@ -18,21 +18,15 @@ jobs:
         with:
           ref: ${{ github.event.release.target_commitish }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - uses: containerbase/internal-tools/setup@9e2c008ec1b3662cb83d8ccdf68b2f0168c7f5d9 # v4.5.9
         with:
-          node-version: 24
-          cache: 'yarn'
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install dependencies
-        run: yarn --frozen-lockfile --no-progress
+          checkout: false
 
       - name: Build
-        run: yarn -s build
+        run: pnpm build
 
       - name: Test
-        run: yarn -s test
+        run: pnpm test
 
       - name: Publish
-        run: npm publish --access public
+        run: pnpm publish --access public
