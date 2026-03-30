@@ -3,7 +3,7 @@
 TypeScript library aiming to fill the gap between usage of ad-hoc regular expressions and generation of complete grammar descriptions.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/renovatebot/good-enough-parser/blob/main/LICENSE)
-[![Trunk](https://github.com/renovatebot/good-enough-parser/actions/workflows/trunk.yml/badge.svg)](https://github.com/renovatebot/good-enough-parser/actions/workflows/trunk.yml)
+[![Build](https://github.com/renovatebot/good-enough-parser/actions/workflows/build.yml/badge.svg)](https://github.com/renovatebot/good-enough-parser/actions/workflows/build.yml)
 
 ## Motivation
 
