@@ -154,14 +154,20 @@ jobs:
     timeout-minutes: 1
     if: always()
     steps:
-      - name: Fail for failed or skipped lint tests
+      - name: Fail for failed or skipped lint job
         if: |
           needs.lint.result == 'failure' ||
           needs.lint.result == 'skipped'
         run: exit 1
 
-      - name: Fail for failed or skipped test tests
+      - name: Fail for failed or skipped test job
         if: |
           needs.test.result == 'failure' ||
           needs.test.result == 'skipped'
+        run: exit 1
+
+      - name: Fail for failed or skipped release job
+        if: |
+          needs.release.result == 'failure' ||
+          needs.release.result == 'skipped'
         run: exit 1
