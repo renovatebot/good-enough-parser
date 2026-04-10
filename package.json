@@ -47,7 +47,7 @@
     "@containerbase/semantic-release-pnpm": "1.3.32",
     "@renovate/eslint-plugin": "https://github.com/renovatebot/eslint-plugin#v0.0.5",
     "@types/jest": "30.0.0",
-    "@types/node": "22.19.15",
+    "@types/node": "22.19.16",
     "@typescript-eslint/eslint-plugin": "8.58.0",
     "@typescript-eslint/parser": "8.58.0",
     "conventional-changelog-conventionalcommits": "9.3.1",
