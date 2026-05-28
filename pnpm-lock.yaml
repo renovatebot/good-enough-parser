@@ -89,8 +89,8 @@ importers:
         specifier: 25.0.3
         version: 25.0.3(typescript@5.9.3)
       ts-jest:
-        specifier: 29.4.10
-        version: 29.4.10(@babel/core@7.29.0)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1)(jest-util@30.4.1)(jest@30.4.2)(typescript@5.9.3)
+        specifier: 29.4.11
+        version: 29.4.11(@babel/core@7.29.0)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1)(jest-util@30.4.1)(jest@30.4.2)(typescript@5.9.3)
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@22.19.19)(typescript@5.9.3)
@@ -531,7 +531,7 @@ packages:
     engines: {node: '>=12'}
 
   '@renovatebot/eslint-plugin@https://codeload.github.com/renovatebot/eslint-plugin/tar.gz/1923e2e2776549cb25a2c6ea09915ee31bff6d05':
-    resolution: {gitHosted: true, integrity: sha512-mdwuwcL7Jhm3eV55ds7pkDoOQZj51iDUE2XEBjbhiksaUXC1F2MKsi/qTnzs2o87c1GfAsSqqfg1AO4YVfoBng==, tarball: https://codeload.github.com/renovatebot/eslint-plugin/tar.gz/1923e2e2776549cb25a2c6ea09915ee31bff6d05}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/renovatebot/eslint-plugin/tar.gz/1923e2e2776549cb25a2c6ea09915ee31bff6d05}
     version: 0.0.5
 
   '@rtsao/scc@1.1.0':
@@ -3151,8 +3151,8 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  ts-jest@29.4.10:
-    resolution: {integrity: sha512-vMTlTTtvz5aKZgzOoc7DQ5TzAL2fCzl8JnG1+ZpwjQa/g0xLlwE44yQ+1Cao9ZP1xVv9y5g34IFXEiqGOGFBUA==}
+  ts-jest@29.4.11:
+    resolution: {integrity: sha512-IrFl7l9AuB/qrNw5quqvAv/hmKMb8dhWOH4jQOGo0Oq8tCeo1O86/iTFG1FaRimgUkF13l4PcepO8ATFT6Ns4g==}
     engines: {node: ^14.15.0 || ^16.10.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -6986,7 +6986,7 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  ts-jest@29.4.10(@babel/core@7.29.0)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1)(jest-util@30.4.1)(jest@30.4.2)(typescript@5.9.3):
+  ts-jest@29.4.11(@babel/core@7.29.0)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1)(jest-util@30.4.1)(jest@30.4.2)(typescript@5.9.3):
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
