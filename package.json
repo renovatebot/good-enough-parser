@@ -69,7 +69,7 @@
     "ts-jest": "29.4.11",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "upath": "3.0.7"
+    "upath": "3.0.8"
   },
   "packageManager": "pnpm@11.10.0"
 }
