@@ -71,8 +71,8 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
       jest-watch-suspend:
-        specifier: 1.1.2
-        version: 1.1.2(jest@30.4.2)
+        specifier: 1.1.3
+        version: 1.1.3(jest@30.4.2)
       jest-watch-typeahead:
         specifier: 3.0.1
         version: 3.0.1(jest@30.4.2)
@@ -2225,8 +2225,9 @@ packages:
   jest-watch-select-projects@2.0.0:
     resolution: {integrity: sha512-j00nW4dXc2NiCW6znXgFLF9g8PJ0zP25cpQ1xRro/HU2GBfZQFZD0SoXnAlaoKkIY4MlfTMkKGbNXFpvCdjl1w==}
 
-  jest-watch-suspend@1.1.2:
-    resolution: {integrity: sha512-sJRE+xj+jBvCdFhjFzJWFh9bg15v1YbSgmpvSCIR5ttg/Cn+608yfRjtLCDQx3ZVcIYlvorgsWIzW+lDFAhMrQ==}
+  jest-watch-suspend@1.1.3:
+    resolution: {integrity: sha512-HX8734Wvwd0s/aSvgjJuWkfMBCwlFYMToX3FMs6xOD5UJ9ucsKDzI40bvUyqK80FoJ395cz+LpoEvCL0sBpDKQ==}
+    engines: {node: '>= 20'}
     peerDependencies:
       jest: '>=23'
 
@@ -3430,9 +3431,9 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
-  unpartial@0.6.4:
-    resolution: {integrity: sha512-t/aGg/x8vW0KCjPB8A6TBB1hd0wnWMze8WD83uUpqSDm99jmhY2ZcHpivlvvSGmPCJ/S5ASZzxeQHga4JTW/4A==}
-    engines: {node: '>=6'}
+  unpartial@1.0.7:
+    resolution: {integrity: sha512-DeyxEI3KSlmDihGAk3Js/p/Ca886ymIz39pWH3VVV/LZ36MsRETylFS37fdzWBWDjMlzB63Rdy2KLCdetOMPig==}
+    engines: {node: '>= 20'}
 
   unrs-resolver@1.12.2:
     resolution: {integrity: sha512-dmlRxBJJayXjqTwC+JtF1HhJmgf3ftQ3YejFcZrf4+KKtJv0qDsK1pjqaaVjG7wJ5NJ6UVP1OqRMQ71Z4C3rxQ==}
@@ -6260,11 +6261,11 @@ snapshots:
       chalk: 3.0.0
       prompts: 2.4.2
 
-  jest-watch-suspend@1.1.2(jest@30.4.2):
+  jest-watch-suspend@1.1.3(jest@30.4.2):
     dependencies:
-      chalk: 2.4.2
+      chalk: 4.1.2
       jest: 30.4.2(@types/node@22.20.1)(supports-color@8.1.1)(ts-node@10.9.2)
-      unpartial: 0.6.4
+      unpartial: 1.0.7
 
   jest-watch-typeahead@3.0.1(jest@30.4.2):
     dependencies:
@@ -7426,7 +7427,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unpartial@0.6.4: {}
+  unpartial@1.0.7: {}
 
   unrs-resolver@1.12.2:
     dependencies:
