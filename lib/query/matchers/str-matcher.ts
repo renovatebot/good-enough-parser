@@ -96,7 +96,8 @@ export class StrTplMatcher<Ctx> extends AbstractMatcher<Ctx> {
 }
 
 export type StrNodeChildMatcher<Ctx> =
-  StrContentMatcher<Ctx> | StrTplMatcher<Ctx>;
+  | StrContentMatcher<Ctx>
+  | StrTplMatcher<Ctx>;
 export interface StrMatcherOptions<Ctx> extends StrTreeOptionsBase<Ctx> {
   matchers: StrNodeChildMatcher<Ctx>[] | null;
 }

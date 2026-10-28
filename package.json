@@ -1,31 +1,27 @@
 {
   "name": "@renovatebot/good-enough-parser",
-  "description": "Parse and query computer programs source code",
   "version": "1.2.0",
-  "repository": "https://github.com/renovatebot/good-enough-parser.git",
+  "description": "Parse and query computer programs source code",
+  "license": "MIT",
   "author": "Sergei Zharinov",
   "contributors": [
     "Jason Kuhrt"
   ],
-  "license": "MIT",
+  "repository": "https://github.com/renovatebot/good-enough-parser.git",
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": ">=24.10.0",
-    "pnpm": ">=10.0.0"
-  },
+  "type": "commonjs",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
-  "type": "commonjs",
   "scripts": {
     "lint": "run-s lint:*",
     "lint:types": "tsc --noEmit",
-    "lint:eslint": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "lint:prettier": "prettier --check .",
+    "lint:oxlint": "oxlint",
+    "lint:oxfmt": "oxfmt --check",
     "fix": "run-s fix:*",
-    "fix:eslint": "eslint . --ext .ts,.tsx --fix",
-    "fix:prettier": "prettier --write .",
+    "fix:oxlint": "oxlint --fix",
+    "fix:oxfmt": "oxfmt",
     "dev": "run-p dev:*",
     "dev:coverage": "http-server ./coverage/lcov-report",
     "build": "run-s clean build:*",
@@ -44,17 +40,11 @@
     "moo": "0.5.3"
   },
   "devDependencies": {
+    "@containerbase/oxlint-plugin": "1.0.3",
     "@containerbase/semantic-release-pnpm": "1.4.3",
-    "@renovate/eslint-plugin": "https://github.com/renovatebot/eslint-plugin#v0.0.5",
     "@types/jest": "30.0.0",
     "@types/node": "22.20.5",
-    "@typescript-eslint/eslint-plugin": "8.72.0",
-    "@typescript-eslint/parser": "8.72.0",
     "conventional-changelog-conventionalcommits": "9.3.1",
-    "eslint": "8.57.1",
-    "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-only-warn": "1.2.1",
     "http-server": "14.1.1",
     "husky": "9.1.7",
     "jest": "30.5.2",
@@ -62,14 +52,20 @@
     "jest-watch-select-projects": "2.0.0",
     "jest-watch-suspend": "1.1.3",
     "jest-watch-typeahead": "3.0.1",
+    "lint-staged": "17.6.0",
     "npm-run-all2": "9.0.4",
-    "prettier": "3.9.10",
-    "pretty-quick": "4.2.2",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "oxlint-tsgolint": "7.0.2004",
     "semantic-release": "25.0.9",
     "ts-jest": "29.4.15",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
     "upath": "3.0.8"
+  },
+  "engines": {
+    "node": ">=24.10.0",
+    "pnpm": ">=10.0.0"
   },
   "packageManager": "pnpm@11.28.7"
 }

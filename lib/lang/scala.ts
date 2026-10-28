@@ -2,8 +2,7 @@ import type { LexerConfig, TemplateOption } from '../lexer/types';
 import type { ParserConfig } from '../parser/types';
 import type { LanguageConfig } from './types';
 
-const operators =
-  /* prettier-ignore */ [
+const operators = /* prettier-ignore */ [
   '+', '-', '*', '/', '%', '%%', '%%%', '**',
   '++', '--',
   '+=', '++=', '-=', '*=', '/=', '%=', '**=',

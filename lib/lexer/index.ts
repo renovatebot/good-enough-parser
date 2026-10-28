@@ -151,7 +151,7 @@ export function createLexer(options: LexerConfig): Lexer {
 
         const mooToken = nextElem.value;
         if (!subLexer) {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          // oxlint-disable-next-line typescript/no-non-null-assertion
           const mooTokenType = mooToken.type!;
           subLexer = subLexers[mooTokenType];
           if (subLexer) {

@@ -4,6 +4,7 @@
     "composite": true,
     "outDir": "dist/cjs",
     "module": "commonjs",
+    "moduleResolution": "node10",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.cjs",
     "rootDir": "lib"
   },

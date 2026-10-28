@@ -5,8 +5,7 @@ import type { LanguageConfig } from './types';
 /**
  * @see https://docs.python.org/3/reference/lexical_analysis.html#operators
  */
-const operators =
-  /* prettier-ignore */ [
+const operators = /* prettier-ignore */ [
   // Operators
   '+', '-', '*', '**', '/', '//', '%', '@',
   '<<', '>>', '&', '|', '^', '~', ':=',
