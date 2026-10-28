@@ -4,6 +4,7 @@ dedupePeers: true
 updateNotifier: false
 
 allowBuilds:
+  '@parcel/watcher': false
   unrs-resolver: false
 
 # in line with https://github.com/renovatebot/.github/blob/main/default.json,
