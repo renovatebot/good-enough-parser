@@ -117,8 +117,7 @@ export interface StrTreeBuilderOptionsBase<Ctx> {
 }
 
 export type StrBuilderOptionsBase<Ctx> =
-  | StrContentBuilderOptionsBase<Ctx>
-  | StrTreeBuilderOptionsBase<Ctx>;
+  StrContentBuilderOptionsBase<Ctx> | StrTreeBuilderOptionsBase<Ctx>;
 
 export interface StrContentBuilderOptions<
   Ctx,
@@ -133,8 +132,7 @@ export interface StrTreeBuilderOptions<
 }
 
 export type StrBuilderOptions<Ctx> =
-  | StrContentBuilderOptions<Ctx>
-  | StrTreeBuilderOptions<Ctx>;
+  StrContentBuilderOptions<Ctx> | StrTreeBuilderOptions<Ctx>;
 
 export interface QueryBuilder<Ctx, T extends Node> {
   handler(fn: (ctx: Ctx, t: T) => Ctx): QueryBuilder<Ctx, T>;

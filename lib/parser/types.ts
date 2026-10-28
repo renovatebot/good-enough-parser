@@ -40,18 +40,10 @@ export interface BlockTree extends TreeBase {
 }
 
 export type TreeType =
-  | 'root-tree'
-  | 'wrapped-tree'
-  | 'string-tree'
-  | 'template-tree'
-  | 'block-tree';
+  'root-tree' | 'wrapped-tree' | 'string-tree' | 'template-tree' | 'block-tree';
 
 export type Tree =
-  | RootTree
-  | WrappedTree
-  | StringTree
-  | TemplateTree
-  | BlockTree;
+  RootTree | WrappedTree | StringTree | TemplateTree | BlockTree;
 
 export type Node = Tree | Token;
 
