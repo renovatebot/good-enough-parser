@@ -60,13 +60,11 @@ jobs:
           - macos
           - windows
         node:
-          - 22
+          - 24
         include:
           # too slow and too many tests to run them on all os
           - os: ubuntu
-            node: 24
-          - os: ubuntu
-            node: 25
+            node: 26
 
     runs-on: ${{ matrix.os }}-latest
 
