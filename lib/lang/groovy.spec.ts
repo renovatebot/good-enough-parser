@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* oxlint-disable typescript/no-unsafe-argument */
 import { query as q } from '..';
 import { loadInputTxt, loadOutputJson } from '../../test/test-utils';
 import type { Token } from '../lexer/types';

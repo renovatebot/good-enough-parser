@@ -6,8 +6,7 @@ import type { LanguageConfig } from './types';
  * @see https://github.com/bazelbuild/starlark/blob/master/spec.md#lexical-elements
  */
 
-const operators =
-  /* prettier-ignore */ [
+const operators = /* oxfmt-ignore */ [
   '+',    '-',    '*',    '//',    '%',    '**',
   '~',    '&',    '|',    '^',     '<<',   '>>',
   '.',    ',',    '=',    ';',     ':',

@@ -5,8 +5,7 @@ import type { LanguageConfig } from './types';
 /**
  * @see https://docs.groovy-lang.org/latest/html/documentation/#groovy-operators
  */
-const operators =
-  /* prettier-ignore */ [
+const operators = /* oxfmt-ignore */ [
   '+', '-', '*', '/', '%', '**',
   '++', '--',
   '+=', '-=', '*=', '/=', '%=', '**=',

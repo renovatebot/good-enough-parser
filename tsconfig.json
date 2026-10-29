@@ -6,13 +6,13 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    // We handle these with ESLint:
+    // We handle these with oxlint:
     // "noUnusedLocals": false,
     // "noUnusedParameters": false,
     // Output
     "target": "ES2019",
-    "module": "commonjs",
-    "moduleResolution": "Node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "importHelpers": false,
     "declaration": true,
     "declarationMap": true,
@@ -20,7 +20,8 @@
     // DX
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "types": ["jest", "node"]
   },
   "include": ["lib", "test"],
   // Prevent unwanted things like auto-import from built modules

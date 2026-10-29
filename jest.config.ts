@@ -1,5 +1,5 @@
 import { env } from 'node:process';
-import { createDefaultPreset, type JestConfigWithTsJest } from 'ts-jest';
+import { type JestConfigWithTsJest, createDefaultPreset } from 'ts-jest';
 
 const ci = !!env.CI;
 

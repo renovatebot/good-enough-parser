@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* oxlint-disable typescript/no-unsafe-argument */
 import { loadInputTxt, loadOutputJson } from '../../test/test-utils';
 import { lang as pythonLang } from './python';
 import { createLang } from '.';

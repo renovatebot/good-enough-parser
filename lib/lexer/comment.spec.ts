@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* oxlint-disable typescript/no-unsafe-argument */
 import { loadInputTxt, loadOutputJson, tokenize } from '../../test/test-utils';
 import { configComments } from './comment';
 import { fallbackRule } from './rules';
