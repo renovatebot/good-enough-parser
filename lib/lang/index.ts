@@ -3,7 +3,8 @@ import type { Lexer } from '../lexer/types.ts';
 import { createCursor, createTree } from '../parser/index.ts';
 import type { Cursor, Node } from '../parser/types.ts';
 import { buildRoot } from '../query/index.ts';
-import type { QueryBuilder } from '../query/types.ts';
+import { collectOperators } from '../query/operators.ts';
+import type { Matcher, QueryBuilder } from '../query/types.ts';
 import { clone } from '../util/clone.ts';
 import { lang as groovy } from './groovy.ts';
 import { lang as python } from './python.ts';
@@ -15,9 +16,28 @@ export * from './types.ts';
 
 export class Language {
   private lexer: Lexer;
+  private readonly operators: Set<string>;
 
   constructor(readonly config: LanguageConfig) {
     this.lexer = createLexer(config.lexer);
+    this.operators = new Set(config.lexer.operators);
+    for (const { templates = [] } of config.lexer.strings) {
+      for (const tpl of templates) {
+        if (tpl.type === 'var') {
+          for (const op of tpl.operators ?? []) {
+            this.operators.add(op);
+          }
+        }
+      }
+    }
+  }
+
+  private validate<Ctx>(matcher: Matcher<Ctx>): void {
+    for (const op of collectOperators(matcher)) {
+      if (!this.operators.has(op)) {
+        throw new Error(`Unknown operator '${op}' for this language`);
+      }
+    }
   }
 
   parse(input: string): Cursor {
@@ -32,6 +52,7 @@ export class Language {
     context: Ctx,
   ): Ctx | null {
     const matcher = buildRoot(q);
+    this.validate(matcher);
     const cursor = typeof input === 'string' ? this.parse(input) : input;
     const checkpoint = matcher.match({ cursor, context });
     const result = checkpoint?.context;
