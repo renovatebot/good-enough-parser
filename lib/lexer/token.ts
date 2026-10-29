@@ -3,7 +3,7 @@ import type { Token, TokenBase } from './types';
 
 export function coerceToken(
   { type, value, offset, line, col, lineBreaks }: MooToken,
-  parent?: MooToken
+  parent?: MooToken,
 ): Token {
   const base: TokenBase = parent
     ? {

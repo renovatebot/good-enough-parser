@@ -29,7 +29,7 @@ export class Language {
   query<Ctx, T extends Node>(
     input: string | Cursor,
     q: QueryBuilder<Ctx, T>,
-    context: Ctx
+    context: Ctx,
   ): Ctx | null {
     const matcher = buildRoot(q);
     const cursor = typeof input === 'string' ? this.parse(input) : input;

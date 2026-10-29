@@ -9,6 +9,6 @@ export function createCursor(tree: Node): Cursor {
       children: (x) => (<Tree>x).children,
       factory: (tree, children) => ({ ...tree, children }),
     },
-    tree
+    tree,
   );
 }

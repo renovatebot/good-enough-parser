@@ -25,7 +25,7 @@ function copyStateDefinition(state: StateDefinition): StateDefinition {
 
 function exprTplStatesMap(
   $: StateDefinition,
-  { tplEndToken, tplEnd }: ExprTplStateInput
+  { tplEndToken, tplEnd }: ExprTplStateInput,
 ): ExprTplStateOutput {
   const rootState: StateDefinition = {};
   const tplState: StateDefinition = copyStateDefinition($);

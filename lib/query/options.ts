@@ -25,7 +25,7 @@ import type {
 
 export function coerceSymOptions<Ctx>(
   arg1?: SymMatcherValue | SymMatcherOptions<Ctx> | SymMatcherHandler<Ctx>,
-  arg2?: SymMatcherHandler<Ctx>
+  arg2?: SymMatcherHandler<Ctx>,
 ): SymMatcherOptions<Ctx> {
   if (typeof arg1 === 'string' || isRegex(arg1)) {
     return {
@@ -50,7 +50,7 @@ export function coerceSymOptions<Ctx>(
 
 export function coerceOpOptions<Ctx>(
   arg1?: OpMatcherValue | OpMatcherOptions<Ctx> | OpMatcherHandler<Ctx>,
-  arg2?: OpMatcherHandler<Ctx>
+  arg2?: OpMatcherHandler<Ctx>,
 ): OpMatcherOptions<Ctx> {
   if (typeof arg1 === 'string' || isRegex(arg1)) {
     return {
@@ -75,7 +75,7 @@ export function coerceOpOptions<Ctx>(
 
 export function coerceCommentOptions<Ctx>(
   arg1?: CommentMatcherValue | CommentMatcherOptions<Ctx> | CommentMatcherHandler<Ctx>,
-  arg2?: CommentMatcherHandler<Ctx>
+  arg2?: CommentMatcherHandler<Ctx>,
 ): CommentMatcherOptions<Ctx> {
   if (typeof arg1 === 'string' || isRegex(arg1)) {
     return {
@@ -100,7 +100,7 @@ export function coerceCommentOptions<Ctx>(
 
 export function coerceNumOptions<Ctx>(
   arg1?: NumMatcherValue | NumMatcherOptions<Ctx> | NumMatcherHandler<Ctx>,
-  arg2?: NumMatcherHandler<Ctx>
+  arg2?: NumMatcherHandler<Ctx>,
 ): NumMatcherOptions<Ctx> {
   if (typeof arg1 === 'string' || isRegex(arg1)) {
     return {
@@ -126,7 +126,7 @@ export function coerceNumOptions<Ctx>(
 export function coerceManyOptions<Ctx>(
   builder: QueryBuilder<Ctx, Node>,
   arg2?: number,
-  arg3?: number
+  arg3?: number,
 ): ManyBuilderOpts<Ctx> {
   if (typeof arg2 === 'number' && typeof arg3 === 'number') {
     return { builder, min: arg2, max: arg3 };
@@ -135,7 +135,7 @@ export function coerceManyOptions<Ctx>(
 }
 
 export function coerceTreeOptions<Ctx>(
-  arg1: TreeBuilderOptions<Ctx> | TreeType | undefined
+  arg1: TreeBuilderOptions<Ctx> | TreeType | undefined,
 ): TreeBuilderOptions<Ctx> {
   if (typeof arg1 === 'string') {
     return { type: arg1 };
@@ -148,7 +148,7 @@ export function coerceTreeOptions<Ctx>(
 
 export function coerceStrOptions<Ctx>(
   arg1: string | RegExp | StrContentMatcherHandler<Ctx> | StrBuilderOptionsBase<Ctx> | undefined,
-  arg2: StrContentMatcherHandler<Ctx> | undefined
+  arg2: StrContentMatcherHandler<Ctx> | undefined,
 ): StrBuilderOptions<Ctx> {
   if (typeof arg1 === 'string' || isRegex(arg1)) {
     if (arg1 === '') {
