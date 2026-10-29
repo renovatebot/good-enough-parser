@@ -4,9 +4,9 @@ import type {
   NumberToken,
   OperatorToken,
   SymbolToken,
-} from '../lexer/types';
-import type { Cursor, Node, StringTree, TemplateTree, Tree, TreeType } from '../parser/types';
-import type { StrContentMatcherHandler } from './matchers/str-matcher';
+} from '../lexer/types.ts';
+import type { Cursor, Node, StringTree, TemplateTree, Tree, TreeType } from '../parser/types.ts';
+import type { StrContentMatcherHandler } from './matchers/str-matcher.ts';
 
 export interface Checkpoint<Ctx> {
   cursor: Cursor;

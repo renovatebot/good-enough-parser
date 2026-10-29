@@ -1,4 +1,4 @@
-import type { OperatorOption, StateDefinition, StatesMap, StringRule } from './types';
+import type { OperatorOption, StateDefinition, StatesMap, StringRule } from './types.ts';
 
 export function configOperators(states: StatesMap, operators: OperatorOption[]): StatesMap {
   const operatorRules: StateDefinition = {};

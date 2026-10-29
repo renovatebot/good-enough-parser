@@ -1,7 +1,7 @@
 /* oxlint-disable typescript/no-unsafe-argument */
-import { loadInputTxt, loadOutputJson } from '../../test/test-utils';
-import { lang as pythonLang } from './python';
-import { createLang } from '.';
+import { loadInputTxt, loadOutputJson } from '../../test/test-utils.ts';
+import { createLang } from './index.ts';
+import { lang as pythonLang } from './python.ts';
 
 const lang = createLang(pythonLang);
 

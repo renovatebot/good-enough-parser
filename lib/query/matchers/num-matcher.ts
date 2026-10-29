@@ -1,8 +1,13 @@
-import type { NumberToken } from '../../lexer/types';
-import { safeHandler } from '../handler';
-import { isRegex } from '../regex';
-import type { Checkpoint, NumMatcherHandler, NumMatcherOptions, NumMatcherValue } from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+import type { NumberToken } from '../../lexer/types.ts';
+import { safeHandler } from '../handler.ts';
+import { isRegex } from '../regex.ts';
+import type {
+  Checkpoint,
+  NumMatcherHandler,
+  NumMatcherOptions,
+  NumMatcherValue,
+} from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 export class NumMatcher<Ctx> extends AbstractMatcher<Ctx> {
   readonly num: NumMatcherValue;

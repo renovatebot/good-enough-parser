@@ -1,5 +1,5 @@
-import type { EndToken, Lexer, StartToken, Token, WhitespaceToken } from '../lexer/types';
-import type { Node, ParserConfig, RootTree, TemplateTree, Tree } from './types';
+import type { EndToken, Lexer, StartToken, Token, WhitespaceToken } from '../lexer/types.ts';
+import type { Node, ParserConfig, RootTree, TemplateTree, Tree } from './types.ts';
 
 type IndentMode = 'on' | 'off';
 

@@ -1,4 +1,4 @@
-import { createLang } from '../lang';
+import { createLang } from '../lang/index.ts';
 
 const lang = createLang('python');
 

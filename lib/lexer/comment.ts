@@ -1,4 +1,4 @@
-import type { CommentOption, RegexRule, StateDefinition, StatesMap } from './types';
+import type { CommentOption, RegexRule, StateDefinition, StatesMap } from './types.ts';
 
 export function esc(input: string): string {
   return input.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');

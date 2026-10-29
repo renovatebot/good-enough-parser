@@ -12,5 +12,5 @@ export {
   tree,
   str,
   buildRoot,
-} from './builder';
-export * from './types';
+} from './builder.ts';
+export * from './types.ts';

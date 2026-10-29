@@ -1,4 +1,4 @@
-import { safeHandler } from './handler';
+import { safeHandler } from './handler.ts';
 
 describe('query/handler', () => {
   it('wraps handler', () => {

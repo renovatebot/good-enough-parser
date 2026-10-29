@@ -5,20 +5,20 @@ import type {
   OperatorToken,
   StartToken,
   SymbolToken,
-} from '../lexer';
-import type { Node, StringTree, Tree, TreeType } from '../parser/types';
-import { AltMatcher, ManyMatcher, OpMatcher, SeqMatcher, SymMatcher } from './matchers';
-import { BeginMatcher, EndMatcher, VoidMatcher } from './matchers/anchor-matcher';
-import { CommentMatcher } from './matchers/comment-matcher';
-import { NumMatcher } from './matchers/num-matcher';
+} from '../lexer/index.ts';
+import type { Node, StringTree, Tree, TreeType } from '../parser/types.ts';
+import { BeginMatcher, EndMatcher, VoidMatcher } from './matchers/anchor-matcher.ts';
+import { CommentMatcher } from './matchers/comment-matcher.ts';
+import { AltMatcher, ManyMatcher, OpMatcher, SeqMatcher, SymMatcher } from './matchers/index.ts';
+import { NumMatcher } from './matchers/num-matcher.ts';
 import {
   StrContentMatcher,
   type StrContentMatcherHandler,
   type StrNodeChildMatcher,
   StrNodeMatcher,
   StrTplMatcher,
-} from './matchers/str-matcher';
-import { TreeMatcher } from './matchers/tree-matcher';
+} from './matchers/str-matcher.ts';
+import { TreeMatcher } from './matchers/tree-matcher.ts';
 import {
   coerceCommentOptions,
   coerceManyOptions,
@@ -27,8 +27,8 @@ import {
   coerceStrOptions,
   coerceSymOptions,
   coerceTreeOptions,
-} from './options';
-import { isRegex } from './regex';
+} from './options.ts';
+import { isRegex } from './regex.ts';
 import type {
   CommentMatcherHandler,
   CommentMatcherOptions,
@@ -49,7 +49,7 @@ import type {
   SymMatcherOptions,
   SymMatcherValue,
   TreeBuilderOptions,
-} from './types';
+} from './types.ts';
 
 abstract class TerminalBuilder<Ctx, T extends Node> implements QueryBuilder<Ctx, T> {
   abstract build(): Matcher<Ctx>;

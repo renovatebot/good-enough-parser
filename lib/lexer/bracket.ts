@@ -1,4 +1,4 @@
-import type { BracketOption, StateDefinition, StatesMap, StringRule } from './types';
+import type { BracketOption, StateDefinition, StatesMap, StringRule } from './types.ts';
 
 export function isBracketKey(key: string): boolean {
   return key.startsWith('bracket$');

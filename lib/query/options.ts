@@ -1,6 +1,6 @@
-import type { Node, StringTree, TreeType } from '../parser/types';
-import type { StrContentMatcherHandler } from './matchers/str-matcher';
-import { isRegex } from './regex';
+import type { Node, StringTree, TreeType } from '../parser/types.ts';
+import type { StrContentMatcherHandler } from './matchers/str-matcher.ts';
+import { isRegex } from './regex.ts';
 import type {
   CommentMatcherHandler,
   CommentMatcherOptions,
@@ -21,7 +21,7 @@ import type {
   SymMatcherOptions,
   SymMatcherValue,
   TreeBuilderOptions,
-} from './types';
+} from './types.ts';
 
 export function coerceSymOptions<Ctx>(
   arg1?: SymMatcherValue | SymMatcherOptions<Ctx> | SymMatcherHandler<Ctx>,

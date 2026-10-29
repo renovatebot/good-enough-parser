@@ -1,8 +1,8 @@
-import { clone } from '../util/clone';
-import { escape } from '../util/regex';
-import { getCounterpartBracketKey, isBracketKey, isRightKey } from './bracket';
-import { fallbackRule } from './rules';
-import type { RegexRule, StateDefinition, StatesMap, StringOption, StringRule } from './types';
+import { clone } from '../util/clone.ts';
+import { escape } from '../util/regex.ts';
+import { getCounterpartBracketKey, isBracketKey, isRightKey } from './bracket.ts';
+import { fallbackRule } from './rules.ts';
+import type { RegexRule, StateDefinition, StatesMap, StringOption, StringRule } from './types.ts';
 
 interface ExprTplStateInput {
   tplEndToken: string;

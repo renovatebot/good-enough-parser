@@ -1,8 +1,8 @@
 /* oxlint-disable typescript/no-unsafe-argument */
-import { loadInputTxt, loadOutputJson, tokenize } from '../../test/test-utils';
-import { configComments } from './comment';
-import { fallbackRule } from './rules';
-import type { CommentOption, StatesMap } from './types';
+import { loadInputTxt, loadOutputJson, tokenize } from '../../test/test-utils.ts';
+import { configComments } from './comment.ts';
+import { fallbackRule } from './rules.ts';
+import type { CommentOption, StatesMap } from './types.ts';
 
 describe('lexer/comment', () => {
   const states: StatesMap = {

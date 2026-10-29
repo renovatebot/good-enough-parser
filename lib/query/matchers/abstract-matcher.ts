@@ -1,5 +1,5 @@
-import type { Cursor, Node } from '../../parser';
-import type { Checkpoint, Matcher } from '../types';
+import type { Cursor, Node } from '../../parser/index.ts';
+import type { Checkpoint, Matcher } from '../types.ts';
 
 const skipByDefault: Node['type'][] = ['whitespace', '_start', 'newline', 'comment'];
 

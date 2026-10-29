@@ -1,14 +1,14 @@
-import { type WrappedTree, isTree } from '../../parser';
-import type { Cursor, Tree } from '../../parser/types';
-import { safeHandler } from '../handler';
+import { type WrappedTree, isTree } from '../../parser/index.ts';
+import type { Cursor, Tree } from '../../parser/types.ts';
+import { safeHandler } from '../handler.ts';
 import type {
   Checkpoint,
   Matcher,
   TreeMatcherHandler,
   TreeMatcherType,
   TreeOptionsBase,
-} from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+} from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 interface TreeMatcherOptions<Ctx> extends TreeOptionsBase<Ctx> {
   matcher: Matcher<Ctx> | null;

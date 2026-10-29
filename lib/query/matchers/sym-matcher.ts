@@ -1,8 +1,13 @@
-import type { SymbolToken } from '../../lexer/types';
-import { safeHandler } from '../handler';
-import { isRegex } from '../regex';
-import type { Checkpoint, SymMatcherHandler, SymMatcherOptions, SymMatcherValue } from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+import type { SymbolToken } from '../../lexer/types.ts';
+import { safeHandler } from '../handler.ts';
+import { isRegex } from '../regex.ts';
+import type {
+  Checkpoint,
+  SymMatcherHandler,
+  SymMatcherOptions,
+  SymMatcherValue,
+} from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 export class SymMatcher<Ctx> extends AbstractMatcher<Ctx> {
   readonly sym: SymMatcherValue;

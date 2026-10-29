@@ -1,14 +1,14 @@
-import type { CommentToken } from '../../lexer/types';
-import type { Node } from '../../parser';
-import { safeHandler } from '../handler';
-import { isRegex } from '../regex';
+import type { CommentToken } from '../../lexer/types.ts';
+import type { Node } from '../../parser/index.ts';
+import { safeHandler } from '../handler.ts';
+import { isRegex } from '../regex.ts';
 import type {
   Checkpoint,
   CommentMatcherHandler,
   CommentMatcherOptions,
   CommentMatcherValue,
-} from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+} from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 const skipBeforeComment: Node['type'][] = ['whitespace', '_start', 'newline'];
 

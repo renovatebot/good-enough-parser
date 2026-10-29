@@ -1,3 +1,3 @@
-export * from './cursor';
-export * from './tree';
-export * from './types';
+export * from './cursor.ts';
+export * from './tree.ts';
+export * from './types.ts';
