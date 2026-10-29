@@ -1,9 +1,4 @@
-import {
-  type Lexer as MooLexer,
-  type Token as MooToken,
-  compile as mooCompile,
-  states as mooStates,
-} from 'moo';
+import moo, { type Lexer as MooLexer, type Token as MooToken } from 'moo';
 import { configBrackets } from './bracket.ts';
 import { configComments } from './comment.ts';
 import { configNumbers } from './number.ts';
@@ -79,7 +74,7 @@ function getSubLexers(states: OrderedStatesMap): Record<string, MooLexer> {
   const result: Record<string, MooLexer> = {};
   for (const [key, rules] of Object.entries(states)) {
     if (isVarToken(key)) {
-      result[key] = mooCompile(rules as never);
+      result[key] = moo.compile(rules as never);
     }
   }
   return result;
@@ -88,7 +83,7 @@ function getSubLexers(states: OrderedStatesMap): Record<string, MooLexer> {
 export function createLexer(options: LexerConfig): Lexer {
   const rules = configureLexerRules(options);
   const subLexers = getSubLexers(rules);
-  const mainLexer = mooStates(rules as never);
+  const mainLexer = moo.states(rules as never);
 
   let subLexer: MooLexer | undefined;
   let subLexerToken: MooToken | undefined;

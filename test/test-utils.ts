@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-import * as moo from 'moo';
+import moo from 'moo';
 import { dirname, join } from 'upath';
 import { createOrderedStateMap as orderStateMap } from '../lib/lexer/rules.ts';
 import { coerceToken } from '../lib/lexer/token.ts';

@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/node24",
   "compilerOptions": {
     // Make the compiler stricter, catch more errors
     "strict": true,
@@ -10,11 +11,9 @@
     // "noUnusedLocals": false,
     // "noUnusedParameters": false,
     // Output
-    "target": "ES2019",
-    "module": "esnext",
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
+    "verbatimModuleSyntax": true,
     "importHelpers": false,
     "declaration": true,
     "declarationMap": true,
