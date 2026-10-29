@@ -4,8 +4,8 @@ import * as builder from '../../lib/query/builder';
 import { SeqMatcher, SymMatcher } from '../../lib/query/matchers';
 import * as _h from './handler';
 
-jest.mock('./handler');
-const h = _h as jest.Mocked<typeof _h>;
+vi.mock('./handler');
+const h = vi.mocked(_h);
 const defaultHandler = (x: unknown) => x;
 const someHandler = (x: unknown) => (x ? x : x);
 h.safeHandler.mockImplementation((fn) => (fn ? fn : defaultHandler));

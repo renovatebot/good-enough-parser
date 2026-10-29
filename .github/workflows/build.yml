@@ -85,7 +85,7 @@ jobs:
           name: dist
           path: dist
 
-      - run: pnpm jest
+      - run: pnpm vitest run
 
       - name: Codecov test results
         if: github.event_name != 'merge_group' && !cancelled()

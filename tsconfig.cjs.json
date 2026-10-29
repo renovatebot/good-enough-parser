@@ -6,7 +6,8 @@
     "module": "commonjs",
     "moduleResolution": "node10",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.cjs",
-    "rootDir": "lib"
+    "rootDir": "lib",
+    "types": ["node"]
   },
   "exclude": ["test", "**/*.spec.ts"]
 }

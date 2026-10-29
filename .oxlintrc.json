@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "import", "jest", "promise", "oxc"],
+  "plugins": ["eslint", "typescript", "import", "vitest", "promise", "oxc"],
   "jsPlugins": ["@containerbase/oxlint-plugin"],
   "options": {
     "typeAware": true,
@@ -89,7 +89,7 @@
   },
   "overrides": [
     {
-      "files": ["test/**", "jest.config.ts", "**/*.spec.ts"],
+      "files": ["test/**", "vitest.config.mts", "**/*.spec.ts"],
       "rules": {
         "containerbase/no-undeclared-dependencies": ["error", { "allowDevDependencies": true }]
       }
