@@ -81,7 +81,7 @@ describe('query/matchers/tree-matcher', () => {
           });
           const res = lang.query(input, query, []);
           expect(res).toEqual(found);
-        }
+        },
       );
 
       test.each`
@@ -161,7 +161,7 @@ describe('query/matchers/tree-matcher', () => {
           });
           const res = lang.query(input, query, []);
           expect(res).toEqual(found);
-        }
+        },
       );
     });
 

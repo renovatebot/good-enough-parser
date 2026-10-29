@@ -69,7 +69,7 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<Ctx,
   sym(opts: SymMatcherOptions<Ctx>): SeqBuilder<Ctx, SymbolToken>;
   sym(
     arg1?: SymMatcherValue | SymMatcherOptions<Ctx> | SymMatcherHandler<Ctx>,
-    arg2?: SymMatcherHandler<Ctx>
+    arg2?: SymMatcherHandler<Ctx>,
   ): SeqBuilder<Ctx, SymbolToken> {
     const opts = coerceSymOptions<Ctx>(arg1, arg2);
     const builder = new SymBuilder<Ctx>(opts);
@@ -83,7 +83,7 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<Ctx,
   op(opts: OpMatcherOptions<Ctx>): SeqBuilder<Ctx, OperatorToken>;
   op(
     arg1?: OpMatcherValue | OpMatcherOptions<Ctx> | OpMatcherHandler<Ctx>,
-    arg2?: OpMatcherHandler<Ctx>
+    arg2?: OpMatcherHandler<Ctx>,
   ): SeqBuilder<Ctx, OperatorToken> {
     const opts = coerceOpOptions(arg1, arg2);
     const builder = new OpBuilder<Ctx>(opts);
@@ -95,12 +95,12 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<Ctx,
   comment(handler: CommentMatcherHandler<Ctx>): SeqBuilder<Ctx, CommentToken>;
   comment(
     value: CommentMatcherValue,
-    handler: CommentMatcherHandler<Ctx>
+    handler: CommentMatcherHandler<Ctx>,
   ): SeqBuilder<Ctx, CommentToken>;
   comment(opts: CommentMatcherOptions<Ctx>): SeqBuilder<Ctx, CommentToken>;
   comment(
     arg1?: CommentMatcherValue | CommentMatcherOptions<Ctx> | CommentMatcherHandler<Ctx>,
-    arg2?: CommentMatcherHandler<Ctx>
+    arg2?: CommentMatcherHandler<Ctx>,
   ): SeqBuilder<Ctx, CommentToken> {
     const opts = coerceCommentOptions<Ctx>(arg1, arg2);
     const builder = new CommentBuilder<Ctx>(opts);
@@ -114,7 +114,7 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<Ctx,
   num(opts: NumMatcherOptions<Ctx>): SeqBuilder<Ctx, NumberToken>;
   num(
     arg1?: NumMatcherValue | NumMatcherOptions<Ctx> | NumMatcherHandler<Ctx>,
-    arg2?: NumMatcherHandler<Ctx>
+    arg2?: NumMatcherHandler<Ctx>,
   ): SeqBuilder<Ctx, NumberToken> {
     const opts = coerceNumOptions<Ctx>(arg1, arg2);
     const builder = new NumBuilder<Ctx>(opts);
@@ -156,7 +156,7 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<Ctx,
   str(opts: StrTreeBuilderOptions<Ctx>): SeqBuilder<Ctx, StringTree>;
   str(
     arg1?: string | RegExp | StrTreeBuilderOptions<Ctx> | StrContentMatcherHandler<Ctx>,
-    arg2?: StrContentMatcherHandler<Ctx>
+    arg2?: StrContentMatcherHandler<Ctx>,
   ): SeqBuilder<Ctx, StringTree> {
     const opts = coerceStrOptions<Ctx>(arg1, arg2);
     const builder = new StrBuilder<Ctx>(opts);
@@ -268,7 +268,7 @@ export function sym<Ctx>(value: SymMatcherValue, handler: SymMatcherHandler<Ctx>
 export function sym<Ctx>(opts: SymMatcherOptions<Ctx>): SymBuilder<Ctx>;
 export function sym<Ctx>(
   arg1?: SymMatcherValue | SymMatcherOptions<Ctx> | SymMatcherHandler<Ctx>,
-  arg2?: SymMatcherHandler<Ctx>
+  arg2?: SymMatcherHandler<Ctx>,
 ): SymBuilder<Ctx> {
   const opts = coerceSymOptions<Ctx>(arg1, arg2);
   return new SymBuilder<Ctx>(opts);
@@ -293,7 +293,7 @@ export function op<Ctx>(value: OpMatcherValue, handler: OpMatcherHandler<Ctx>): 
 export function op<Ctx>(opts: OpMatcherOptions<Ctx>): OpBuilder<Ctx>;
 export function op<Ctx>(
   arg1?: OpMatcherValue | OpMatcherOptions<Ctx> | OpMatcherHandler<Ctx>,
-  arg2?: OpMatcherHandler<Ctx>
+  arg2?: OpMatcherHandler<Ctx>,
 ): OpBuilder<Ctx> {
   const opts = coerceOpOptions<Ctx>(arg1, arg2);
   return new OpBuilder<Ctx>(opts);
@@ -316,12 +316,12 @@ export function comment<Ctx>(value: CommentMatcherValue): CommentBuilder<Ctx>;
 export function comment<Ctx>(handler: CommentMatcherHandler<Ctx>): CommentBuilder<Ctx>;
 export function comment<Ctx>(
   value: CommentMatcherValue,
-  handler: CommentMatcherHandler<Ctx>
+  handler: CommentMatcherHandler<Ctx>,
 ): CommentBuilder<Ctx>;
 export function comment<Ctx>(opts: CommentMatcherOptions<Ctx>): CommentBuilder<Ctx>;
 export function comment<Ctx>(
   arg1?: CommentMatcherValue | CommentMatcherOptions<Ctx> | CommentMatcherHandler<Ctx>,
-  arg2?: CommentMatcherHandler<Ctx>
+  arg2?: CommentMatcherHandler<Ctx>,
 ): CommentBuilder<Ctx> {
   const opts = coerceCommentOptions<Ctx>(arg1, arg2);
   return new CommentBuilder<Ctx>(opts);
@@ -346,7 +346,7 @@ export function num<Ctx>(value: NumMatcherValue, handler: NumMatcherHandler<Ctx>
 export function num<Ctx>(opts: NumMatcherOptions<Ctx>): NumBuilder<Ctx>;
 export function num<Ctx>(
   arg1?: NumMatcherValue | NumMatcherOptions<Ctx> | NumMatcherHandler<Ctx>,
-  arg2?: NumMatcherHandler<Ctx>
+  arg2?: NumMatcherHandler<Ctx>,
 ): NumBuilder<Ctx> {
   const opts = coerceNumOptions<Ctx>(arg1, arg2);
   return new NumBuilder<Ctx>(opts);
@@ -369,12 +369,12 @@ export function many<Ctx>(builder: QueryBuilder<Ctx, Node>): ManyBuilder<Ctx>;
 export function many<Ctx>(
   builder: QueryBuilder<Ctx, Node>,
   min: number,
-  max: number
+  max: number,
 ): ManyBuilder<Ctx>;
 export function many<Ctx>(
   arg1: QueryBuilder<Ctx, Node>,
   arg2?: number,
-  arg3?: number
+  arg3?: number,
 ): ManyBuilder<Ctx> {
   const opts = coerceManyOptions<Ctx>(arg1, arg2, arg3);
   return new ManyBuilder<Ctx>(opts);
@@ -494,7 +494,7 @@ export function str<Ctx>(pattern: RegExp, handler?: StrContentMatcherHandler<Ctx
 export function str<Ctx>(opts: StrTreeBuilderOptionsBase<Ctx>): StrBuilder<Ctx>;
 export function str<Ctx>(
   arg1?: string | RegExp | StrTreeBuilderOptionsBase<Ctx> | StrContentMatcherHandler<Ctx>,
-  arg2?: StrContentMatcherHandler<Ctx>
+  arg2?: StrContentMatcherHandler<Ctx>,
 ): StrBuilder<Ctx> {
   const opts = coerceStrOptions<Ctx>(arg1, arg2);
   return new StrBuilder<Ctx>(opts);

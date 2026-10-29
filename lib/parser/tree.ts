@@ -6,7 +6,7 @@ type IndentMode = 'on' | 'off';
 function specialToken(
   type: '_start' | '_end',
   prevToken?: Token,
-  nextToken?: Token
+  nextToken?: Token,
 ): StartToken | EndToken {
   const lineBreaks = 0;
 
@@ -240,6 +240,6 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
 
 export function isTree(node: Node): node is Tree {
   return ['root-tree', 'wrapped-tree', 'string-tree', 'template-tree', 'block-tree'].includes(
-    node?.type
+    node?.type,
   );
 }
