@@ -17,15 +17,17 @@ export * from './types.ts';
 export class Language {
   private lexer: Lexer;
   private readonly operators: Set<string>;
+  private readonly templateOperators: Set<string>;
 
   constructor(readonly config: LanguageConfig) {
     this.lexer = createLexer(config.lexer);
     this.operators = new Set(config.lexer.operators);
+    this.templateOperators = new Set(config.lexer.operators);
     for (const { templates = [] } of config.lexer.strings) {
       for (const tpl of templates) {
         if (tpl.type === 'var') {
           for (const op of tpl.operators ?? []) {
-            this.operators.add(op);
+            this.templateOperators.add(op);
           }
         }
       }
@@ -33,9 +35,15 @@ export class Language {
   }
 
   private validate<Ctx>(matcher: Matcher<Ctx>): void {
-    for (const op of collectOperators(matcher)) {
+    const { code, template } = collectOperators(matcher);
+    for (const op of code) {
       if (!this.operators.has(op)) {
         throw new Error(`Unknown operator '${op}' for this language`);
+      }
+    }
+    for (const op of template) {
+      if (!this.templateOperators.has(op)) {
+        throw new Error(`Unknown template operator '${op}' for this language`);
       }
     }
   }
