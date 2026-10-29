@@ -1,15 +1,15 @@
-import { createLang } from '../../lang';
-import { lang as pythonLang } from '../../lang/python';
+import { createLang } from '../../lang/index.ts';
+import { lang as pythonLang } from '../../lang/python.ts';
 import type {
   CommentToken,
   NumberToken,
   OperatorToken,
   SymbolToken,
   Token,
-} from '../../lexer/types';
-import type { Node } from '../../parser';
-import * as q from '../builder';
-import type { QueryBuilder } from '../types';
+} from '../../lexer/types.ts';
+import type { Node } from '../../parser/index.ts';
+import * as q from '../builder.ts';
+import type { QueryBuilder } from '../types.ts';
 
 const lang = createLang(pythonLang);
 

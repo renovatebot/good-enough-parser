@@ -1,5 +1,5 @@
-import type { Checkpoint, Matcher, SeqMatcherOptions } from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+import type { Checkpoint, Matcher, SeqMatcherOptions } from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 export class SeqMatcher<Ctx> extends AbstractMatcher<Ctx> {
   readonly seq: Matcher<Ctx>[];

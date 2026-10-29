@@ -1,8 +1,8 @@
 /* oxlint-disable typescript/no-unsafe-argument */
-import { fallbackRule } from '../../lib/lexer/rules';
-import { configStrings } from '../../lib/lexer/string';
-import type { StatesMap, StringOption } from '../../lib/lexer/types';
-import { loadInputTxt, loadOutputJson, tokenize } from '../../test/test-utils';
+import { fallbackRule } from '../../lib/lexer/rules.ts';
+import { configStrings } from '../../lib/lexer/string.ts';
+import type { StatesMap, StringOption } from '../../lib/lexer/types.ts';
+import { loadInputTxt, loadOutputJson, tokenize } from '../../test/test-utils.ts';
 
 describe('lexer/string', () => {
   describe('configuration', () => {

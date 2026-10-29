@@ -4,18 +4,18 @@ import {
   compile as mooCompile,
   states as mooStates,
 } from 'moo';
-import { configBrackets } from './bracket';
-import { configComments } from './comment';
-import { configNumbers } from './number';
-import { configOperators } from './operator';
-import { createOrderedStateMap, fallbackRule } from './rules';
-import { configStrings } from './string';
-import { configSymbols } from './symbol';
-import { coerceToken } from './token';
-import type { Lexer, LexerConfig, OrderedStatesMap, RegexRule, StatesMap, Token } from './types';
+import { configBrackets } from './bracket.ts';
+import { configComments } from './comment.ts';
+import { configNumbers } from './number.ts';
+import { configOperators } from './operator.ts';
+import { createOrderedStateMap, fallbackRule } from './rules.ts';
+import { configStrings } from './string.ts';
+import { configSymbols } from './symbol.ts';
+import { coerceToken } from './token.ts';
+import type { Lexer, LexerConfig, OrderedStatesMap, RegexRule, StatesMap, Token } from './types.ts';
 
-export * from './token';
-export * from './types';
+export * from './token.ts';
+export * from './types.ts';
 
 export function configureLexerRules(lexerConfig: LexerConfig): OrderedStatesMap {
   const whitespace: RegexRule = lexerConfig.joinLines

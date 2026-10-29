@@ -1,7 +1,7 @@
-import { createLang } from '../../lang';
-import { lang as pythonLang } from '../../lang/python';
-import type { Token } from '../../lexer/types';
-import * as q from '../builder';
+import { createLang } from '../../lang/index.ts';
+import { lang as pythonLang } from '../../lang/python.ts';
+import type { Token } from '../../lexer/types.ts';
+import * as q from '../builder.ts';
 
 const lang = createLang(pythonLang);
 

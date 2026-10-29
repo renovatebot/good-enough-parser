@@ -1,8 +1,8 @@
-import type { Token } from '../../lexer/types';
-import type { Cursor, Tree } from '../../parser';
-import { clone } from '../../util/clone';
-import type { Checkpoint } from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+import type { Token } from '../../lexer/types.ts';
+import type { Cursor, Tree } from '../../parser/index.ts';
+import { clone } from '../../util/clone.ts';
+import type { Checkpoint } from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 export class BeginMatcher<Ctx> extends AbstractMatcher<Ctx> {
   match(checkpoint: Checkpoint<Ctx>): Checkpoint<Ctx> | null {

@@ -1,5 +1,5 @@
-import { fallbackRule, sortLexerRules } from '../../lib/lexer/rules';
-import type { LexerRule } from '../../lib/lexer/types';
+import { fallbackRule, sortLexerRules } from '../../lib/lexer/rules.ts';
+import type { LexerRule } from '../../lib/lexer/types.ts';
 
 function strRule(name: string, match: string): LexerRule {
   return { t: 'string', type: name, match, chunk: match };

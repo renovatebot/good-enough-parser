@@ -1,5 +1,5 @@
-import type { Node } from '../parser/types';
-import { clone } from '../util/clone';
+import type { Node } from '../parser/types.ts';
+import { clone } from '../util/clone.ts';
 
 export function safeHandler<Ctx, T extends Node = Node>(
   handler: ((ctx: Ctx, token: T) => Ctx) | null | undefined,

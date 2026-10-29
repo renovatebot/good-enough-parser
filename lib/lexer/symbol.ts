@@ -1,4 +1,4 @@
-import type { StatesMap, SymbolOption } from './types';
+import type { StatesMap, SymbolOption } from './types.ts';
 
 export function configSymbols(states: StatesMap, { match }: SymbolOption): StatesMap {
   return {

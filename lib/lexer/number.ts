@@ -1,4 +1,4 @@
-import type { NumberOption, StatesMap } from './types';
+import type { NumberOption, StatesMap } from './types.ts';
 
 export function configNumbers(states: StatesMap, { match }: NumberOption): StatesMap {
   return {

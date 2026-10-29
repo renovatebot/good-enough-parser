@@ -15,7 +15,7 @@
   },
   "ignorePatterns": ["dist/", "coverage/", ".claude/worktrees/", ".pnpm-store"],
   "rules": {
-    "containerbase/enforce-ts-extension": "off",
+    "containerbase/enforce-ts-extension": "error",
     "containerbase/no-undeclared-dependencies": "error",
     "containerbase/organize-imports": "error",
     "containerbase/test-root-describe": "error",

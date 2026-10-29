@@ -1,17 +1,17 @@
-import { createLexer } from '../lexer';
-import type { Lexer } from '../lexer/types';
-import { createCursor, createTree } from '../parser';
-import type { Cursor, Node } from '../parser/types';
-import { buildRoot } from '../query';
-import type { QueryBuilder } from '../query/types';
-import { clone } from '../util/clone';
-import { lang as groovy } from './groovy';
-import { lang as python } from './python';
-import { lang as scala } from './scala';
-import { lang as starlark } from './starlark';
-import type { LanguageConfig } from './types';
+import { createLexer } from '../lexer/index.ts';
+import type { Lexer } from '../lexer/types.ts';
+import { createCursor, createTree } from '../parser/index.ts';
+import type { Cursor, Node } from '../parser/types.ts';
+import { buildRoot } from '../query/index.ts';
+import type { QueryBuilder } from '../query/types.ts';
+import { clone } from '../util/clone.ts';
+import { lang as groovy } from './groovy.ts';
+import { lang as python } from './python.ts';
+import { lang as scala } from './scala.ts';
+import { lang as starlark } from './starlark.ts';
+import type { LanguageConfig } from './types.ts';
 
-export * from './types';
+export * from './types.ts';
 
 export class Language {
   private lexer: Lexer;

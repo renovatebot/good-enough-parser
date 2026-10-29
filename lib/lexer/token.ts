@@ -1,5 +1,5 @@
 import type { Token as MooToken } from 'moo';
-import type { Token, TokenBase } from './types';
+import type { Token, TokenBase } from './types.ts';
 
 export function coerceToken(
   { type, value, offset, line, col, lineBreaks }: MooToken,

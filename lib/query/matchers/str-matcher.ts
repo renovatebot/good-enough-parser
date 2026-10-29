@@ -1,7 +1,7 @@
-import type { StringValueToken } from '../../lexer/types';
-import type { StringTree, TemplateTree } from '../../parser/types';
-import { safeHandler } from '../handler';
-import { isRegex } from '../regex';
+import type { StringValueToken } from '../../lexer/types.ts';
+import type { StringTree, TemplateTree } from '../../parser/types.ts';
+import { safeHandler } from '../handler.ts';
+import { isRegex } from '../regex.ts';
 import type {
   Checkpoint,
   Matcher,
@@ -9,8 +9,8 @@ import type {
   StrTplOptionsBase,
   StrTreeHandler,
   StrTreeOptionsBase,
-} from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+} from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 export type StrContentMatcherValue = string | RegExp | null;
 export type StrContentMatcherHandler<Ctx> = (ctx: Ctx, token: StringValueToken) => Ctx;

@@ -1,8 +1,8 @@
-import type { OperatorToken } from '../../lexer/types';
-import { safeHandler } from '../handler';
-import { isRegex } from '../regex';
-import type { Checkpoint, OpMatcherHandler, OpMatcherOptions, OpMatcherValue } from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+import type { OperatorToken } from '../../lexer/types.ts';
+import { safeHandler } from '../handler.ts';
+import { isRegex } from '../regex.ts';
+import type { Checkpoint, OpMatcherHandler, OpMatcherOptions, OpMatcherValue } from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 export class OpMatcher<Ctx> extends AbstractMatcher<Ctx> {
   readonly op: OpMatcherValue;

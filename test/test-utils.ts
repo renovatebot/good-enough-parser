@@ -1,9 +1,9 @@
 import { readFileSync, writeFileSync } from 'fs';
 import * as moo from 'moo';
 import { dirname, join } from 'upath';
-import { createOrderedStateMap as orderStateMap } from '../lib/lexer/rules';
-import { coerceToken } from '../lib/lexer/token';
-import type { StatesMap, Token } from '../lib/lexer/types';
+import { createOrderedStateMap as orderStateMap } from '../lib/lexer/rules.ts';
+import { coerceToken } from '../lib/lexer/token.ts';
+import type { StatesMap, Token } from '../lib/lexer/types.ts';
 
 function getCallerFileName(): string {
   let result: string | null = null;

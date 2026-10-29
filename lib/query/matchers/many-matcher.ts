@@ -1,5 +1,5 @@
-import type { Checkpoint, ManyMatcherOptions, Matcher } from '../types';
-import { AbstractMatcher } from './abstract-matcher';
+import type { Checkpoint, ManyMatcherOptions, Matcher } from '../types.ts';
+import { AbstractMatcher } from './abstract-matcher.ts';
 
 export class ManyMatcher<Ctx> extends AbstractMatcher<Ctx> {
   readonly manyOf: Matcher<Ctx>;

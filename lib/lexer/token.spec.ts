@@ -1,5 +1,5 @@
 import type { Token as MooToken } from 'moo';
-import { coerceToken } from '../../lib/lexer/token';
+import { coerceToken } from '../../lib/lexer/token.ts';
 
 describe('lexer/token', () => {
   it('pre-defined type', () => {

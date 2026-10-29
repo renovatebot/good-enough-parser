@@ -1,8 +1,8 @@
 /* oxlint-disable typescript/no-unsafe-argument */
-import { query as q } from '..';
-import { loadInputTxt, loadOutputJson } from '../../test/test-utils';
-import type { Token } from '../lexer/types';
-import { createLang } from '.';
+import { loadInputTxt, loadOutputJson } from '../../test/test-utils.ts';
+import { query as q } from '../index.ts';
+import type { Token } from '../lexer/types.ts';
+import { createLang } from './index.ts';
 
 const lang = createLang('groovy');
 

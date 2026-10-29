@@ -1,6 +1,6 @@
-import type { LexerConfig } from '../lexer/types';
-import type { ParserConfig } from '../parser/types';
-import type { LanguageConfig } from './types';
+import type { LexerConfig } from '../lexer/types.ts';
+import type { ParserConfig } from '../parser/types.ts';
+import type { LanguageConfig } from './types.ts';
 
 /**
  * @see https://github.com/bazelbuild/starlark/blob/master/spec.md#lexical-elements
