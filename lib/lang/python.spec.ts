@@ -9,11 +9,7 @@ describe('lang/python', () => {
   it('does not confuse operator and number literal', () => {
     const value = '.42';
     const res = lang.parse(value).children;
-    expect(res).toMatchObject([
-      { type: '_start' },
-      { type: 'number', value },
-      { type: '_end' },
-    ]);
+    expect(res).toMatchObject([{ type: '_start' }, { type: 'number', value }, { type: '_end' }]);
   });
 
   test.each`

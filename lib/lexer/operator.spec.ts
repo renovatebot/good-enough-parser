@@ -12,10 +12,6 @@ describe('lexer/operator', () => {
     const rules = configOperators(states, bracketOptions);
     const input = '2+2';
     const res = tokenize(rules, input);
-    expect(res).toMatchObject([
-      { type: '_' },
-      { type: 'operator' },
-      { type: '_' },
-    ]);
+    expect(res).toMatchObject([{ type: '_' }, { type: 'operator' }, { type: '_' }]);
   });
 });

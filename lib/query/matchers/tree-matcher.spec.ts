@@ -92,18 +92,15 @@ describe('query/matchers/tree-matcher', () => {
         ${3}     | ${['foo', 'bar', 'baz']}
         ${4}     | ${['foo', 'bar', 'baz', 'qux']}
         ${5}     | ${['foo', 'bar', 'baz', 'qux']}
-      `(
-        'maxDepth = $maxDepth',
-        ({ maxDepth, found }: { maxDepth: number; found: string[] }) => {
-          const query = q.tree<string[]>({
-            type: 'root-tree',
-            search: q.sym(handler),
-            maxDepth,
-          });
-          const res = lang.query(input, query, []);
-          expect(res).toEqual(found);
-        }
-      );
+      `('maxDepth = $maxDepth', ({ maxDepth, found }: { maxDepth: number; found: string[] }) => {
+        const query = q.tree<string[]>({
+          type: 'root-tree',
+          search: q.sym(handler),
+          maxDepth,
+        });
+        const res = lang.query(input, query, []);
+        expect(res).toEqual(found);
+      });
 
       it('counts moving up correctly', () => {
         const input = '(foo) + (bar) + (baz) + (qux)';

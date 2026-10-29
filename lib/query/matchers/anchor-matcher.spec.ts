@@ -144,8 +144,7 @@ describe('query/matchers/anchor-matcher', () => {
     });
 
     test('many', () => {
-      const h = (_: Ctx, node: Node) =>
-        node.type === 'number' ? node.value : null;
+      const h = (_: Ctx, node: Node) => (node.type === 'number' ? node.value : null);
 
       input = '';
       query = q.many<Ctx>(q.num()).handler(h);

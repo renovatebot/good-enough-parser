@@ -1,18 +1,10 @@
-import type {
-  CommentOption,
-  RegexRule,
-  StateDefinition,
-  StatesMap,
-} from './types';
+import type { CommentOption, RegexRule, StateDefinition, StatesMap } from './types';
 
 export function esc(input: string): string {
   return input.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
 }
 
-export function configComments(
-  states: StatesMap,
-  opts: CommentOption[]
-): StatesMap {
+export function configComments(states: StatesMap, opts: CommentOption[]): StatesMap {
   const commentRules: StateDefinition = {};
   opts.forEach((option, idx) => {
     const tokenName = `comment$${idx}`;

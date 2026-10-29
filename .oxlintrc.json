@@ -33,10 +33,7 @@
     "no-prototype-builtins": "error",
     "no-useless-escape": "error",
     "no-fallthrough": "error",
-    "no-unused-vars": [
-      "error",
-      { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
-    ],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
     "no-unused-expressions": "error",
     "no-empty-function": "error",
     "no-array-constructor": "error",
@@ -94,10 +91,7 @@
     {
       "files": ["test/**", "jest.config.ts", "**/*.spec.ts"],
       "rules": {
-        "containerbase/no-undeclared-dependencies": [
-          "error",
-          { "allowDevDependencies": true }
-        ]
+        "containerbase/no-undeclared-dependencies": ["error", { "allowDevDependencies": true }]
       }
     }
   ]

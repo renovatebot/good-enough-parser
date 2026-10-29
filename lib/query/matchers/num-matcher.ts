@@ -1,12 +1,7 @@
 import type { NumberToken } from '../../lexer/types';
 import { safeHandler } from '../handler';
 import { isRegex } from '../regex';
-import type {
-  Checkpoint,
-  NumMatcherHandler,
-  NumMatcherOptions,
-  NumMatcherValue,
-} from '../types';
+import type { Checkpoint, NumMatcherHandler, NumMatcherOptions, NumMatcherValue } from '../types';
 import { AbstractMatcher } from './abstract-matcher';
 
 export class NumMatcher<Ctx> extends AbstractMatcher<Ctx> {

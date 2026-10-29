@@ -44,8 +44,7 @@ describe('lexer/rules', () => {
         { ...fallbackRule, type: 'z', chunk: null },
       ];
 
-      const chunks = (rules: LexerRule[]): (string | null)[] =>
-        rules.map(({ chunk }) => chunk);
+      const chunks = (rules: LexerRule[]): (string | null)[] => rules.map(({ chunk }) => chunk);
 
       const res = sortLexerRules(rules);
 

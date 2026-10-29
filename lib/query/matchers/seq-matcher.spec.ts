@@ -20,12 +20,7 @@ describe('query/matchers/seq-matcher', () => {
 
     it('skips spaces', () => {
       const input = 'foo .\tbar\n.   baz';
-      const query = q
-        .sym(handler)
-        .op(handler)
-        .sym(handler)
-        .op(handler)
-        .sym(handler);
+      const query = q.sym(handler).op(handler).sym(handler).op(handler).sym(handler);
 
       const res = lang.query(input, query, []);
 
@@ -34,12 +29,7 @@ describe('query/matchers/seq-matcher', () => {
 
     it('falsy if query is longer than input', () => {
       const input = 'foo.bar';
-      const query = q
-        .sym(handler)
-        .op(handler)
-        .sym(handler)
-        .op(handler)
-        .sym(handler);
+      const query = q.sym(handler).op(handler).sym(handler).op(handler).sym(handler);
 
       const res = lang.query(input, query, []);
 

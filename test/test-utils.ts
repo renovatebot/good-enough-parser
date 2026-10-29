@@ -64,11 +64,7 @@ export function loadInputJson<T>(sampleName: string, sampleRoot = '.'): T {
   return JSON.parse(rawSample) as T;
 }
 
-export function loadOutputJson<T>(
-  sampleName: string,
-  testOutput: T,
-  sampleRoot = '.'
-): T {
+export function loadOutputJson<T>(sampleName: string, testOutput: T, sampleRoot = '.'): T {
   const sampleFile = `${sampleName}.out.json`;
 
   let result: T = testOutput;
