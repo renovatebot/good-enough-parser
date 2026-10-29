@@ -1,10 +1,4 @@
-import type {
-  EndToken,
-  Lexer,
-  StartToken,
-  Token,
-  WhitespaceToken,
-} from '../lexer/types';
+import type { EndToken, Lexer, StartToken, Token, WhitespaceToken } from '../lexer/types';
 import type { Node, ParserConfig, RootTree, TemplateTree, Tree } from './types';
 
 type IndentMode = 'on' | 'off';
@@ -73,9 +67,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
         } else {
           let prevIndent = indents.pop();
           if (
-            prevIndent
-              ? prevIndent !== currIndent && currIndent.startsWith(prevIndent)
-              : currIndent
+            prevIndent ? prevIndent !== currIndent && currIndent.startsWith(prevIndent) : currIndent
           ) {
             if (prevIndent) {
               indents.push(prevIndent);
@@ -84,22 +76,13 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
             stack.push(currentTree);
             currentTree = {
               type: 'block-tree',
-              children: [
-                specialToken('_start', prevToken, token),
-                ...indentSpaces,
-              ],
+              children: [specialToken('_start', prevToken, token), ...indentSpaces],
             };
           } else if (currentTree.type === 'block-tree') {
-            while (
-              prevIndent &&
-              prevIndent !== currIndent &&
-              prevIndent.startsWith(currIndent)
-            ) {
+            while (prevIndent && prevIndent !== currIndent && prevIndent.startsWith(currIndent)) {
               const prevTree = stack.pop();
               if (prevTree) {
-                currentTree.children.push(
-                  specialToken('_end', prevToken, token)
-                );
+                currentTree.children.push(specialToken('_end', prevToken, token));
                 prevTree.children.push(currentTree);
                 currentTree = prevTree;
               }
@@ -130,10 +113,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
         children: [],
       };
       nestingCounter += 1;
-    } else if (
-      token.type === 'bracket-right' &&
-      currentTree.type === 'wrapped-tree'
-    ) {
+    } else if (token.type === 'bracket-right' && currentTree.type === 'wrapped-tree') {
       currentTree.children.push(specialToken('_end', prevToken, token));
       currentTree.endsWith = token;
       const prevTree = stack.pop();
@@ -151,10 +131,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
         children: [],
       };
       nestingCounter += 1;
-    } else if (
-      token.type === 'string-end' &&
-      currentTree.type === 'string-tree'
-    ) {
+    } else if (token.type === 'string-end' && currentTree.type === 'string-tree') {
       currentTree.children.push(specialToken('_end', prevToken, token));
       currentTree.endsWith = token;
       const prevTree = stack.pop();
@@ -163,10 +140,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
         currentTree = prevTree;
       }
       nestingCounter -= 1;
-    } else if (
-      token.type === 'template-start' &&
-      currentTree.type === 'string-tree'
-    ) {
+    } else if (token.type === 'template-start' && currentTree.type === 'string-tree') {
       stack.push(currentTree);
       currentTree = {
         type: 'template-tree',
@@ -175,10 +149,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
         children: [],
       };
       nestingCounter += 1;
-    } else if (
-      token.type === 'template-end' &&
-      currentTree.type === 'template-tree'
-    ) {
+    } else if (token.type === 'template-end' && currentTree.type === 'template-tree') {
       currentTree.children.push(specialToken('_end', prevToken, token));
       currentTree.endsWith = token;
       const prevTree = stack.pop();
@@ -187,10 +158,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
         currentTree = prevTree;
       }
       nestingCounter -= 1;
-    } else if (
-      token.type === 'string-value' &&
-      currentTree.type === 'template-tree'
-    ) {
+    } else if (token.type === 'string-value' && currentTree.type === 'template-tree') {
       const tplTree: TemplateTree = currentTree;
 
       const tplEndToken = specialToken('_end', prevToken, token);
@@ -204,10 +172,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
         currentTree = upperTree;
         nestingCounter -= 1;
       }
-    } else if (
-      token.type === 'string-end' &&
-      currentTree.type === 'template-tree'
-    ) {
+    } else if (token.type === 'string-end' && currentTree.type === 'template-tree') {
       const tplTree: TemplateTree = currentTree;
 
       const tplEndToken = specialToken('_end', prevToken, token);
@@ -232,10 +197,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
           nestingCounter -= 1;
         }
       }
-    } else if (
-      token.type === 'template-start' &&
-      currentTree.type === 'template-tree'
-    ) {
+    } else if (token.type === 'template-start' && currentTree.type === 'template-tree') {
       const tplTree: TemplateTree = currentTree;
 
       const tplEndToken = specialToken('_end', prevToken, token);
@@ -277,11 +239,7 @@ export function createTree(lexer: Lexer, config: ParserConfig): RootTree {
 }
 
 export function isTree(node: Node): node is Tree {
-  return [
-    'root-tree',
-    'wrapped-tree',
-    'string-tree',
-    'template-tree',
-    'block-tree',
-  ].includes(node?.type);
+  return ['root-tree', 'wrapped-tree', 'string-tree', 'template-tree', 'block-tree'].includes(
+    node?.type
+  );
 }

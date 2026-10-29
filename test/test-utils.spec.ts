@@ -1,10 +1,5 @@
 import { existsSync, rmSync } from 'fs';
-import {
-  getSamplePath,
-  loadInputJson,
-  loadInputTxt,
-  loadOutputJson,
-} from './test-utils';
+import { getSamplePath, loadInputJson, loadInputTxt, loadOutputJson } from './test-utils';
 
 describe('test-utils', () => {
   it('loadInputTxt', () => {

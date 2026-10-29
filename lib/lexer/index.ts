@@ -12,21 +12,12 @@ import { createOrderedStateMap, fallbackRule } from './rules';
 import { configStrings } from './string';
 import { configSymbols } from './symbol';
 import { coerceToken } from './token';
-import type {
-  Lexer,
-  LexerConfig,
-  OrderedStatesMap,
-  RegexRule,
-  StatesMap,
-  Token,
-} from './types';
+import type { Lexer, LexerConfig, OrderedStatesMap, RegexRule, StatesMap, Token } from './types';
 
 export * from './token';
 export * from './types';
 
-export function configureLexerRules(
-  lexerConfig: LexerConfig
-): OrderedStatesMap {
+export function configureLexerRules(lexerConfig: LexerConfig): OrderedStatesMap {
   const whitespace: RegexRule = lexerConfig.joinLines
     ? {
         t: 'regex',
@@ -56,8 +47,7 @@ export function configureLexerRules(
     },
   };
 
-  const { comments, symbols, operators, brackets, strings, numbers } =
-    lexerConfig;
+  const { comments, symbols, operators, brackets, strings, numbers } = lexerConfig;
   result = configComments(result, comments);
   result = configSymbols(result, { match: symbols });
   result = configOperators(result, operators);
@@ -73,14 +63,7 @@ function isVarToken(key: unknown): key is string {
   return typeof key === 'string' && /^str\$\d+\$tpl\$\d+\$token$/.test(key);
 }
 
-function getVarEndToken({
-  type,
-  value,
-  offset,
-  line,
-  col,
-  lineBreaks,
-}: MooToken): MooToken {
+function getVarEndToken({ type, value, offset, line, col, lineBreaks }: MooToken): MooToken {
   return {
     type: type?.replace(/\$[^$]+$/, '$end'),
     value: '',

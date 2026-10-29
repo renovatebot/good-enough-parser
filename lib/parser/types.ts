@@ -46,12 +46,7 @@ export type TreeType =
   | 'template-tree'
   | 'block-tree';
 
-export type Tree =
-  | RootTree
-  | WrappedTree
-  | StringTree
-  | TemplateTree
-  | BlockTree;
+export type Tree = RootTree | WrappedTree | StringTree | TemplateTree | BlockTree;
 
 export type Node = Tree | Token;
 

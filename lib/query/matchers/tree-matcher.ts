@@ -34,9 +34,7 @@ export class TreeMatcher<Ctx> extends AbstractMatcher<Ctx> {
     this.endsWithValue = config.endsWith ?? null;
     this.matcher = config.matcher;
     this.maxDepth =
-      typeof config.maxDepth === 'number' && config.maxDepth > 0
-        ? config.maxDepth
-        : 1024;
+      typeof config.maxDepth === 'number' && config.maxDepth > 0 ? config.maxDepth : 1024;
     this.maxMatches =
       typeof config.maxMatches === 'number' && config.maxMatches > 0
         ? config.maxMatches
@@ -54,9 +52,7 @@ export class TreeMatcher<Ctx> extends AbstractMatcher<Ctx> {
 
     let rightCursor = cursor.right;
     if (rightCursor) {
-      rightCursor = this.matcher
-        ? this.matcher.seekNext(rightCursor)
-        : this.seekNext(rightCursor);
+      rightCursor = this.matcher ? this.matcher.seekNext(rightCursor) : this.seekNext(rightCursor);
       if (rightCursor) {
         return rightCursor;
       }
@@ -85,10 +81,7 @@ export class TreeMatcher<Ctx> extends AbstractMatcher<Ctx> {
     return undefined;
   }
 
-  walkToNextMatch(
-    context: Ctx,
-    cursor: Cursor | undefined
-  ): Checkpoint<Ctx> | undefined {
+  walkToNextMatch(context: Ctx, cursor: Cursor | undefined): Checkpoint<Ctx> | undefined {
     if (!cursor || !this.matcher) {
       return undefined;
     }
@@ -120,17 +113,11 @@ export class TreeMatcher<Ctx> extends AbstractMatcher<Ctx> {
 
       if (this.type === 'wrapped-tree') {
         const currentTree = rootNode as WrappedTree;
-        if (
-          this.startsWithValue &&
-          currentTree.startsWith.value !== this.startsWithValue
-        ) {
+        if (this.startsWithValue && currentTree.startsWith.value !== this.startsWithValue) {
           return null;
         }
 
-        if (
-          this.endsWithValue &&
-          currentTree.endsWith.value !== this.endsWithValue
-        ) {
+        if (this.endsWithValue && currentTree.endsWith.value !== this.endsWithValue) {
           return null;
         }
       }
@@ -154,8 +141,7 @@ export class TreeMatcher<Ctx> extends AbstractMatcher<Ctx> {
       }
       context = this.postHandler(context, rootNode);
 
-      const cursor =
-        rootNode.type === 'root-tree' ? rootCursor : this.moveRight(rootCursor);
+      const cursor = rootNode.type === 'root-tree' ? rootCursor : this.moveRight(rootCursor);
       return { context, cursor };
     }
 

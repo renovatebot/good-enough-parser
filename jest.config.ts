@@ -33,9 +33,7 @@ const config: JestConfigWithTsJest = {
   collectCoverage: true,
   coveragePathIgnorePatterns: ['test-utils'],
   coverageProvider: 'v8',
-  coverageReporters: ci
-    ? ['text-summary', 'json']
-    : ['text-summary', 'html', 'json'],
+  coverageReporters: ci ? ['text-summary', 'json'] : ['text-summary', 'html', 'json'],
 };
 
 export default config;

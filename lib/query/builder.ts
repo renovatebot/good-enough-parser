@@ -7,18 +7,8 @@ import type {
   SymbolToken,
 } from '../lexer';
 import type { Node, StringTree, Tree, TreeType } from '../parser/types';
-import {
-  AltMatcher,
-  ManyMatcher,
-  OpMatcher,
-  SeqMatcher,
-  SymMatcher,
-} from './matchers';
-import {
-  BeginMatcher,
-  EndMatcher,
-  VoidMatcher,
-} from './matchers/anchor-matcher';
+import { AltMatcher, ManyMatcher, OpMatcher, SeqMatcher, SymMatcher } from './matchers';
+import { BeginMatcher, EndMatcher, VoidMatcher } from './matchers/anchor-matcher';
 import { CommentMatcher } from './matchers/comment-matcher';
 import { NumMatcher } from './matchers/num-matcher';
 import {
@@ -61,10 +51,7 @@ import type {
   TreeBuilderOptions,
 } from './types';
 
-abstract class TerminalBuilder<Ctx, T extends Node> implements QueryBuilder<
-  Ctx,
-  T
-> {
+abstract class TerminalBuilder<Ctx, T extends Node> implements QueryBuilder<Ctx, T> {
   abstract build(): Matcher<Ctx>;
 
   handler(fn: (context: Ctx, t: T) => Ctx): SeqBuilder<Ctx, T> {
@@ -74,17 +61,11 @@ abstract class TerminalBuilder<Ctx, T extends Node> implements QueryBuilder<
   }
 }
 
-abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<
-  Ctx,
-  T
-> {
+abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<Ctx, T> {
   sym(): SeqBuilder<Ctx, SymbolToken>;
   sym(value: SymMatcherValue): SeqBuilder<Ctx, SymbolToken>;
   sym(handler: SymMatcherHandler<Ctx>): SeqBuilder<Ctx, SymbolToken>;
-  sym(
-    value: SymMatcherValue,
-    handler: SymMatcherHandler<Ctx>
-  ): SeqBuilder<Ctx, SymbolToken>;
+  sym(value: SymMatcherValue, handler: SymMatcherHandler<Ctx>): SeqBuilder<Ctx, SymbolToken>;
   sym(opts: SymMatcherOptions<Ctx>): SeqBuilder<Ctx, SymbolToken>;
   sym(
     arg1?: SymMatcherValue | SymMatcherOptions<Ctx> | SymMatcherHandler<Ctx>,
@@ -98,10 +79,7 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<
   op(): SeqBuilder<Ctx, OperatorToken>;
   op(value: OpMatcherValue): SeqBuilder<Ctx, OperatorToken>;
   op(handler: OpMatcherHandler<Ctx>): SeqBuilder<Ctx, OperatorToken>;
-  op(
-    value: OpMatcherValue,
-    handler: OpMatcherHandler<Ctx>
-  ): SeqBuilder<Ctx, OperatorToken>;
+  op(value: OpMatcherValue, handler: OpMatcherHandler<Ctx>): SeqBuilder<Ctx, OperatorToken>;
   op(opts: OpMatcherOptions<Ctx>): SeqBuilder<Ctx, OperatorToken>;
   op(
     arg1?: OpMatcherValue | OpMatcherOptions<Ctx> | OpMatcherHandler<Ctx>,
@@ -121,10 +99,7 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<
   ): SeqBuilder<Ctx, CommentToken>;
   comment(opts: CommentMatcherOptions<Ctx>): SeqBuilder<Ctx, CommentToken>;
   comment(
-    arg1?:
-      | CommentMatcherValue
-      | CommentMatcherOptions<Ctx>
-      | CommentMatcherHandler<Ctx>,
+    arg1?: CommentMatcherValue | CommentMatcherOptions<Ctx> | CommentMatcherHandler<Ctx>,
     arg2?: CommentMatcherHandler<Ctx>
   ): SeqBuilder<Ctx, CommentToken> {
     const opts = coerceCommentOptions<Ctx>(arg1, arg2);
@@ -135,10 +110,7 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<
   num(): SeqBuilder<Ctx, NumberToken>;
   num(value: NumMatcherValue): SeqBuilder<Ctx, NumberToken>;
   num(handler: NumMatcherHandler<Ctx>): SeqBuilder<Ctx, NumberToken>;
-  num(
-    value: NumMatcherValue,
-    handler: NumMatcherHandler<Ctx>
-  ): SeqBuilder<Ctx, NumberToken>;
+  num(value: NumMatcherValue, handler: NumMatcherHandler<Ctx>): SeqBuilder<Ctx, NumberToken>;
   num(opts: NumMatcherOptions<Ctx>): SeqBuilder<Ctx, NumberToken>;
   num(
     arg1?: NumMatcherValue | NumMatcherOptions<Ctx> | NumMatcherHandler<Ctx>,
@@ -150,16 +122,8 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<
   }
 
   many(builder: QueryBuilder<Ctx, Node>): SeqBuilder<Ctx, Node>;
-  many(
-    builder: QueryBuilder<Ctx, Node>,
-    min: number,
-    max: number
-  ): SeqBuilder<Ctx, Node>;
-  many(
-    arg1: QueryBuilder<Ctx, Node>,
-    arg2?: number,
-    arg3?: number
-  ): SeqBuilder<Ctx, Node> {
+  many(builder: QueryBuilder<Ctx, Node>, min: number, max: number): SeqBuilder<Ctx, Node>;
+  many(arg1: QueryBuilder<Ctx, Node>, arg2?: number, arg3?: number): SeqBuilder<Ctx, Node> {
     const opts = coerceManyOptions<Ctx>(arg1, arg2, arg3);
     const builder = new ManyBuilder<Ctx>(opts);
     return new SeqBuilder<Ctx, Node>(this, builder);
@@ -187,21 +151,11 @@ abstract class AbstractBuilder<Ctx, T extends Node> extends TerminalBuilder<
 
   str(): SeqBuilder<Ctx, StringTree>;
   str(handler: StrContentMatcherHandler<Ctx>): SeqBuilder<Ctx, StringTree>;
-  str(
-    exact: string,
-    handler?: StrContentMatcherHandler<Ctx>
-  ): SeqBuilder<Ctx, StringTree>;
-  str(
-    pattern: RegExp,
-    handler?: StrContentMatcherHandler<Ctx>
-  ): SeqBuilder<Ctx, StringTree>;
+  str(exact: string, handler?: StrContentMatcherHandler<Ctx>): SeqBuilder<Ctx, StringTree>;
+  str(pattern: RegExp, handler?: StrContentMatcherHandler<Ctx>): SeqBuilder<Ctx, StringTree>;
   str(opts: StrTreeBuilderOptions<Ctx>): SeqBuilder<Ctx, StringTree>;
   str(
-    arg1?:
-      | string
-      | RegExp
-      | StrTreeBuilderOptions<Ctx>
-      | StrContentMatcherHandler<Ctx>,
+    arg1?: string | RegExp | StrTreeBuilderOptions<Ctx> | StrContentMatcherHandler<Ctx>,
     arg2?: StrContentMatcherHandler<Ctx>
   ): SeqBuilder<Ctx, StringTree> {
     const opts = coerceStrOptions<Ctx>(arg1, arg2);
@@ -227,10 +181,7 @@ export class BeginBuilder<Ctx, T extends Node> extends AbstractBuilder<Ctx, T> {
   }
 }
 
-export class EndBuilder<Ctx, T extends Node> extends TerminalBuilder<
-  Ctx,
-  EndToken
-> {
+export class EndBuilder<Ctx, T extends Node> extends TerminalBuilder<Ctx, EndToken> {
   constructor(private readonly builder: QueryBuilder<Ctx, T>) {
     super();
   }
@@ -258,9 +209,7 @@ export class VoidBuilder<Ctx, T extends Node> extends AbstractBuilder<Ctx, T> {
   }
 }
 
-export function handler<Ctx>(
-  fn: (context: Ctx, t: Node) => Ctx
-): VoidBuilder<Ctx, Node> {
+export function handler<Ctx>(fn: (context: Ctx, t: Node) => Ctx): VoidBuilder<Ctx, Node> {
   return new VoidBuilder(fn);
 }
 
@@ -272,13 +221,9 @@ export class SeqBuilder<Ctx, T extends Node> extends AbstractBuilder<Ctx, T> {
   constructor(prev: QueryBuilder<Ctx, Node>, next: QueryBuilder<Ctx, T>) {
     super();
     const prevSeq =
-      prev instanceof SeqBuilder
-        ? (prev.builders as QueryBuilder<Ctx, Node>[])
-        : [prev];
+      prev instanceof SeqBuilder ? (prev.builders as QueryBuilder<Ctx, Node>[]) : [prev];
     const nextSeq =
-      next instanceof SeqBuilder
-        ? (next.builders as QueryBuilder<Ctx, Node>[])
-        : [next];
+      next instanceof SeqBuilder ? (next.builders as QueryBuilder<Ctx, Node>[]) : [next];
     this.builders = [...prevSeq, ...nextSeq];
   }
 
@@ -319,10 +264,7 @@ export class SymBuilder<Ctx> extends AbstractBuilder<Ctx, SymbolToken> {
 export function sym<Ctx>(): SymBuilder<Ctx>;
 export function sym<Ctx>(value: SymMatcherValue): SymBuilder<Ctx>;
 export function sym<Ctx>(handler: SymMatcherHandler<Ctx>): SymBuilder<Ctx>;
-export function sym<Ctx>(
-  value: SymMatcherValue,
-  handler: SymMatcherHandler<Ctx>
-): SymBuilder<Ctx>;
+export function sym<Ctx>(value: SymMatcherValue, handler: SymMatcherHandler<Ctx>): SymBuilder<Ctx>;
 export function sym<Ctx>(opts: SymMatcherOptions<Ctx>): SymBuilder<Ctx>;
 export function sym<Ctx>(
   arg1?: SymMatcherValue | SymMatcherOptions<Ctx> | SymMatcherHandler<Ctx>,
@@ -347,10 +289,7 @@ export class OpBuilder<Ctx> extends AbstractBuilder<Ctx, OperatorToken> {
 export function op<Ctx>(): OpBuilder<Ctx>;
 export function op<Ctx>(value: OpMatcherValue): OpBuilder<Ctx>;
 export function op<Ctx>(handler: OpMatcherHandler<Ctx>): OpBuilder<Ctx>;
-export function op<Ctx>(
-  value: OpMatcherValue,
-  handler: OpMatcherHandler<Ctx>
-): OpBuilder<Ctx>;
+export function op<Ctx>(value: OpMatcherValue, handler: OpMatcherHandler<Ctx>): OpBuilder<Ctx>;
 export function op<Ctx>(opts: OpMatcherOptions<Ctx>): OpBuilder<Ctx>;
 export function op<Ctx>(
   arg1?: OpMatcherValue | OpMatcherOptions<Ctx> | OpMatcherHandler<Ctx>,
@@ -374,21 +313,14 @@ export class CommentBuilder<Ctx> extends AbstractBuilder<Ctx, CommentToken> {
 
 export function comment<Ctx>(): CommentBuilder<Ctx>;
 export function comment<Ctx>(value: CommentMatcherValue): CommentBuilder<Ctx>;
-export function comment<Ctx>(
-  handler: CommentMatcherHandler<Ctx>
-): CommentBuilder<Ctx>;
+export function comment<Ctx>(handler: CommentMatcherHandler<Ctx>): CommentBuilder<Ctx>;
 export function comment<Ctx>(
   value: CommentMatcherValue,
   handler: CommentMatcherHandler<Ctx>
 ): CommentBuilder<Ctx>;
+export function comment<Ctx>(opts: CommentMatcherOptions<Ctx>): CommentBuilder<Ctx>;
 export function comment<Ctx>(
-  opts: CommentMatcherOptions<Ctx>
-): CommentBuilder<Ctx>;
-export function comment<Ctx>(
-  arg1?:
-    | CommentMatcherValue
-    | CommentMatcherOptions<Ctx>
-    | CommentMatcherHandler<Ctx>,
+  arg1?: CommentMatcherValue | CommentMatcherOptions<Ctx> | CommentMatcherHandler<Ctx>,
   arg2?: CommentMatcherHandler<Ctx>
 ): CommentBuilder<Ctx> {
   const opts = coerceCommentOptions<Ctx>(arg1, arg2);
@@ -410,10 +342,7 @@ export class NumBuilder<Ctx> extends AbstractBuilder<Ctx, NumberToken> {
 export function num<Ctx>(): NumBuilder<Ctx>;
 export function num<Ctx>(value: NumMatcherValue): NumBuilder<Ctx>;
 export function num<Ctx>(handler: NumMatcherHandler<Ctx>): NumBuilder<Ctx>;
-export function num<Ctx>(
-  value: NumMatcherValue,
-  handler: NumMatcherHandler<Ctx>
-): NumBuilder<Ctx>;
+export function num<Ctx>(value: NumMatcherValue, handler: NumMatcherHandler<Ctx>): NumBuilder<Ctx>;
 export function num<Ctx>(opts: NumMatcherOptions<Ctx>): NumBuilder<Ctx>;
 export function num<Ctx>(
   arg1?: NumMatcherValue | NumMatcherOptions<Ctx> | NumMatcherHandler<Ctx>,
@@ -469,9 +398,7 @@ export class AltBuilder<Ctx> extends AbstractBuilder<Ctx, Node> {
   }
 }
 
-export function alt<Ctx>(
-  ...builders: QueryBuilder<Ctx, Node>[]
-): AltBuilder<Ctx> {
+export function alt<Ctx>(...builders: QueryBuilder<Ctx, Node>[]): AltBuilder<Ctx> {
   return new AltBuilder<Ctx>(builders);
 }
 
@@ -493,9 +420,7 @@ export class TreeBuilder<Ctx> extends AbstractBuilder<Ctx, Tree> {
 export function tree<Ctx>(): TreeBuilder<Ctx>;
 export function tree<Ctx>(type: TreeType): TreeBuilder<Ctx>;
 export function tree<Ctx>(opts: TreeBuilderOptions<Ctx>): TreeBuilder<Ctx>;
-export function tree<Ctx>(
-  arg1?: TreeBuilderOptions<Ctx> | TreeType
-): TreeBuilder<Ctx> {
+export function tree<Ctx>(arg1?: TreeBuilderOptions<Ctx> | TreeType): TreeBuilder<Ctx> {
   const opts = coerceTreeOptions(arg1);
   return new TreeBuilder(opts);
 }
@@ -563,24 +488,12 @@ export class StrBuilder<Ctx> extends AbstractBuilder<Ctx, StringTree> {
 }
 
 export function str<Ctx>(): StrBuilder<Ctx>;
-export function str<Ctx>(
-  handler: StrContentMatcherHandler<Ctx>
-): StrBuilder<Ctx>;
-export function str<Ctx>(
-  exact: string,
-  handler?: StrContentMatcherHandler<Ctx>
-): StrBuilder<Ctx>;
-export function str<Ctx>(
-  pattern: RegExp,
-  handler?: StrContentMatcherHandler<Ctx>
-): StrBuilder<Ctx>;
+export function str<Ctx>(handler: StrContentMatcherHandler<Ctx>): StrBuilder<Ctx>;
+export function str<Ctx>(exact: string, handler?: StrContentMatcherHandler<Ctx>): StrBuilder<Ctx>;
+export function str<Ctx>(pattern: RegExp, handler?: StrContentMatcherHandler<Ctx>): StrBuilder<Ctx>;
 export function str<Ctx>(opts: StrTreeBuilderOptionsBase<Ctx>): StrBuilder<Ctx>;
 export function str<Ctx>(
-  arg1?:
-    | string
-    | RegExp
-    | StrTreeBuilderOptionsBase<Ctx>
-    | StrContentMatcherHandler<Ctx>,
+  arg1?: string | RegExp | StrTreeBuilderOptionsBase<Ctx> | StrContentMatcherHandler<Ctx>,
   arg2?: StrContentMatcherHandler<Ctx>
 ): StrBuilder<Ctx> {
   const opts = coerceStrOptions<Ctx>(arg1, arg2);

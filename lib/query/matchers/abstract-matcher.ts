@@ -1,12 +1,7 @@
 import type { Cursor, Node } from '../../parser';
 import type { Checkpoint, Matcher } from '../types';
 
-const skipByDefault: Node['type'][] = [
-  'whitespace',
-  '_start',
-  'newline',
-  'comment',
-];
+const skipByDefault: Node['type'][] = ['whitespace', '_start', 'newline', 'comment'];
 
 export abstract class AbstractMatcher<Ctx> implements Matcher<Ctx> {
   canSkip(node: Node): boolean {

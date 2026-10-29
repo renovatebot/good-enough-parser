@@ -190,9 +190,7 @@ describe('query/builder', () => {
       ${{ search: foo }}                           | ${null}        | ${defaultHandler} | ${defaultHandler} | ${expect.any(SymMatcher)}
       ${{ search: foo, postHandler: someHandler }} | ${null}        | ${defaultHandler} | ${someHandler}    | ${expect.any(SymMatcher)}
     `('tree($arg1)', ({ arg1, type, preHandler, postHandler, matcher }) => {
-      const treeSeq = arg1
-        ? builder.tree(arg1).tree(arg1)
-        : builder.tree().tree();
+      const treeSeq = arg1 ? builder.tree(arg1).tree(arg1) : builder.tree().tree();
       const expected = {
         type,
         preHandler,
@@ -284,11 +282,7 @@ describe('query/builder', () => {
       const config = { match: ['foo', builder.sym('bar'), 'baz'] };
       const matcher = builder.str(config).build();
       expect(matcher).toMatchObject({
-        matchers: [
-          { content: 'foo' },
-          { matcher: { sym: 'bar' } },
-          { content: 'baz' },
-        ],
+        matchers: [{ content: 'foo' }, { matcher: { sym: 'bar' } }, { content: 'baz' }],
       });
     });
 

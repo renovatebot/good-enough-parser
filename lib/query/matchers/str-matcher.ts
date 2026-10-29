@@ -13,10 +13,7 @@ import type {
 import { AbstractMatcher } from './abstract-matcher';
 
 export type StrContentMatcherValue = string | RegExp | null;
-export type StrContentMatcherHandler<Ctx> = (
-  ctx: Ctx,
-  token: StringValueToken
-) => Ctx;
+export type StrContentMatcherHandler<Ctx> = (ctx: Ctx, token: StringValueToken) => Ctx;
 export interface StrContentMatcherOptions<Ctx> {
   value: StrContentMatcherValue;
   handler: StrContentMatcherHandler<Ctx> | null;
@@ -95,9 +92,7 @@ export class StrTplMatcher<Ctx> extends AbstractMatcher<Ctx> {
   }
 }
 
-export type StrNodeChildMatcher<Ctx> =
-  | StrContentMatcher<Ctx>
-  | StrTplMatcher<Ctx>;
+export type StrNodeChildMatcher<Ctx> = StrContentMatcher<Ctx> | StrTplMatcher<Ctx>;
 export interface StrMatcherOptions<Ctx> extends StrTreeOptionsBase<Ctx> {
   matchers: StrNodeChildMatcher<Ctx>[] | null;
 }

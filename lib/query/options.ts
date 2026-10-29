@@ -74,10 +74,7 @@ export function coerceOpOptions<Ctx>(
 }
 
 export function coerceCommentOptions<Ctx>(
-  arg1?:
-    | CommentMatcherValue
-    | CommentMatcherOptions<Ctx>
-    | CommentMatcherHandler<Ctx>,
+  arg1?: CommentMatcherValue | CommentMatcherOptions<Ctx> | CommentMatcherHandler<Ctx>,
   arg2?: CommentMatcherHandler<Ctx>
 ): CommentMatcherOptions<Ctx> {
   if (typeof arg1 === 'string' || isRegex(arg1)) {
@@ -150,12 +147,7 @@ export function coerceTreeOptions<Ctx>(
 }
 
 export function coerceStrOptions<Ctx>(
-  arg1:
-    | string
-    | RegExp
-    | StrContentMatcherHandler<Ctx>
-    | StrBuilderOptionsBase<Ctx>
-    | undefined,
+  arg1: string | RegExp | StrContentMatcherHandler<Ctx> | StrBuilderOptionsBase<Ctx> | undefined,
   arg2: StrContentMatcherHandler<Ctx> | undefined
 ): StrBuilderOptions<Ctx> {
   if (typeof arg1 === 'string' || isRegex(arg1)) {
@@ -186,11 +178,7 @@ export function coerceStrOptions<Ctx>(
       handler: arg1,
     };
   } else if (arg1) {
-    if (
-      (arg1 as never)['handler'] ||
-      typeof arg1.match === 'string' ||
-      isRegex(arg1.match)
-    ) {
+    if ((arg1 as never)['handler'] || typeof arg1.match === 'string' || isRegex(arg1.match)) {
       return {
         type: 'str-content',
         ...arg1,

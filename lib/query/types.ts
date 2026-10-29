@@ -5,14 +5,7 @@ import type {
   OperatorToken,
   SymbolToken,
 } from '../lexer/types';
-import type {
-  Cursor,
-  Node,
-  StringTree,
-  TemplateTree,
-  Tree,
-  TreeType,
-} from '../parser/types';
+import type { Cursor, Node, StringTree, TemplateTree, Tree, TreeType } from '../parser/types';
 import type { StrContentMatcherHandler } from './matchers/str-matcher';
 
 export interface Checkpoint<Ctx> {
@@ -120,21 +113,15 @@ export type StrBuilderOptionsBase<Ctx> =
   | StrContentBuilderOptionsBase<Ctx>
   | StrTreeBuilderOptionsBase<Ctx>;
 
-export interface StrContentBuilderOptions<
-  Ctx,
-> extends StrContentBuilderOptionsBase<Ctx> {
+export interface StrContentBuilderOptions<Ctx> extends StrContentBuilderOptionsBase<Ctx> {
   type: 'str-content';
 }
 
-export interface StrTreeBuilderOptions<
-  Ctx,
-> extends StrTreeBuilderOptionsBase<Ctx> {
+export interface StrTreeBuilderOptions<Ctx> extends StrTreeBuilderOptionsBase<Ctx> {
   type: 'str-tree';
 }
 
-export type StrBuilderOptions<Ctx> =
-  | StrContentBuilderOptions<Ctx>
-  | StrTreeBuilderOptions<Ctx>;
+export type StrBuilderOptions<Ctx> = StrContentBuilderOptions<Ctx> | StrTreeBuilderOptions<Ctx>;
 
 export interface QueryBuilder<Ctx, T extends Node> {
   handler(fn: (ctx: Ctx, t: T) => Ctx): QueryBuilder<Ctx, T>;

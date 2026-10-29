@@ -1,9 +1,4 @@
-import type {
-  BracketOption,
-  StateDefinition,
-  StatesMap,
-  StringRule,
-} from './types';
+import type { BracketOption, StateDefinition, StatesMap, StringRule } from './types';
 
 export function isBracketKey(key: string): boolean {
   return key.startsWith('bracket$');
@@ -29,10 +24,7 @@ export function getCounterpartBracketKey(rightKey: string): string | undefined {
   return result;
 }
 
-export function configBrackets(
-  states: StatesMap,
-  opts: BracketOption[]
-): StatesMap {
+export function configBrackets(states: StatesMap, opts: BracketOption[]): StatesMap {
   const bracketDefs: StateDefinition = {};
   opts.forEach((option, idx) => {
     const tokenKey = `bracket$${idx}`;

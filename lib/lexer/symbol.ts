@@ -1,9 +1,6 @@
 import type { StatesMap, SymbolOption } from './types';
 
-export function configSymbols(
-  states: StatesMap,
-  { match }: SymbolOption
-): StatesMap {
+export function configSymbols(states: StatesMap, { match }: SymbolOption): StatesMap {
   return {
     ...states,
     $: {

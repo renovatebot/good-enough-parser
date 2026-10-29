@@ -2,13 +2,7 @@ import { clone } from '../util/clone';
 import { escape } from '../util/regex';
 import { getCounterpartBracketKey, isBracketKey, isRightKey } from './bracket';
 import { fallbackRule } from './rules';
-import type {
-  RegexRule,
-  StateDefinition,
-  StatesMap,
-  StringOption,
-  StringRule,
-} from './types';
+import type { RegexRule, StateDefinition, StatesMap, StringOption, StringRule } from './types';
 
 interface ExprTplStateInput {
   tplEndToken: string;
@@ -41,8 +35,7 @@ function exprTplStatesMap(
       bracketRule.t === 'string' &&
       isBracketKey(bracketKey) &&
       isRightKey(bracketKey) &&
-      (bracketRule.match.startsWith(tplEnd) ||
-        tplEnd.startsWith(bracketRule.match))
+      (bracketRule.match.startsWith(tplEnd) || tplEnd.startsWith(bracketRule.match))
     ) {
       const counterpartKey = getCounterpartBracketKey(bracketKey);
       if (!counterpartKey) {
@@ -73,10 +66,7 @@ function exprTplStatesMap(
   return { $: rootState, tplState };
 }
 
-export function configStrings(
-  states: StatesMap,
-  opts: StringOption[]
-): StatesMap {
+export function configStrings(states: StatesMap, opts: StringOption[]): StatesMap {
   if (!opts.length) {
     return states;
   }
@@ -162,9 +152,7 @@ export function configStrings(
           symRegex = $.symbol.match;
         }
         if (!symRegex) {
-          throw new Error(
-            `String definition isn't found for template definition`
-          );
+          throw new Error(`String definition isn't found for template definition`);
         }
         const start = escape(tplStart);
         const symSource = symRegex.source;

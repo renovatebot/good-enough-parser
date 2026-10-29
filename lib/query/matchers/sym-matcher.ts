@@ -1,12 +1,7 @@
 import type { SymbolToken } from '../../lexer/types';
 import { safeHandler } from '../handler';
 import { isRegex } from '../regex';
-import type {
-  Checkpoint,
-  SymMatcherHandler,
-  SymMatcherOptions,
-  SymMatcherValue,
-} from '../types';
+import type { Checkpoint, SymMatcherHandler, SymMatcherOptions, SymMatcherValue } from '../types';
 import { AbstractMatcher } from './abstract-matcher';
 
 export class SymMatcher<Ctx> extends AbstractMatcher<Ctx> {

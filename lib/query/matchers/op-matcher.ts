@@ -1,12 +1,7 @@
 import type { OperatorToken } from '../../lexer/types';
 import { safeHandler } from '../handler';
 import { isRegex } from '../regex';
-import type {
-  Checkpoint,
-  OpMatcherHandler,
-  OpMatcherOptions,
-  OpMatcherValue,
-} from '../types';
+import type { Checkpoint, OpMatcherHandler, OpMatcherOptions, OpMatcherValue } from '../types';
 import { AbstractMatcher } from './abstract-matcher';
 
 export class OpMatcher<Ctx> extends AbstractMatcher<Ctx> {
