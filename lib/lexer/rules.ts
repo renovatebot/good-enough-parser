@@ -1,8 +1,8 @@
-import { fallback as mooFallback } from 'moo';
+import moo from 'moo';
 import type { FallbackRule, LexerRule, OrderedStatesMap, StatesMap } from './types.ts';
 
 export const fallbackRule: Omit<FallbackRule, 'type'> = {
-  ...mooFallback,
+  ...moo.fallback,
   t: 'fallback',
   chunk: null,
 };

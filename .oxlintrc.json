@@ -89,7 +89,7 @@
   },
   "overrides": [
     {
-      "files": ["test/**", "vitest.config.mts", "**/*.spec.ts"],
+      "files": ["test/**", "vitest.config.ts", "**/*.spec.ts"],
       "rules": {
         "containerbase/no-undeclared-dependencies": ["error", { "allowDevDependencies": true }]
       }
