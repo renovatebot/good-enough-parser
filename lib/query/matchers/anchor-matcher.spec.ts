@@ -98,7 +98,7 @@ describe('query/matchers/anchor-matcher', () => {
       expect(queryResult()).toBe('+');
     });
 
-    // oxlint-disable-next-line jest/no-disabled-tests
+    // oxlint-disable-next-line vitest/no-disabled-tests
     test.skip('comment', () => {
       const h = (_: Ctx, node: CommentToken) => node.value;
 

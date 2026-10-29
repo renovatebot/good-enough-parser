@@ -28,7 +28,7 @@
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json",
     "test": "run-s lint test:*",
-    "test:unit": "jest",
+    "test:unit": "vitest run",
     "clean": "rm -rf dist node_modules/.cache coverage",
     "prepare": "husky",
     "prepublishOnly": "pnpm build"
@@ -42,26 +42,20 @@
   "devDependencies": {
     "@containerbase/oxlint-plugin": "1.0.3",
     "@containerbase/semantic-release-pnpm": "1.4.3",
-    "@types/jest": "30.0.0",
     "@types/node": "22.20.5",
+    "@vitest/coverage-v8": "5.0.5",
     "conventional-changelog-conventionalcommits": "9.3.1",
     "http-server": "14.1.1",
     "husky": "9.1.7",
-    "jest": "30.5.2",
-    "jest-junit": "17.0.0",
-    "jest-watch-select-projects": "2.0.0",
-    "jest-watch-suspend": "1.1.3",
-    "jest-watch-typeahead": "3.0.1",
     "lint-staged": "17.6.0",
     "npm-run-all2": "9.0.4",
     "oxfmt": "0.74.0",
     "oxlint": "1.89.0",
     "oxlint-tsgolint": "7.0.2004",
     "semantic-release": "25.0.9",
-    "ts-jest": "29.4.15",
-    "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "upath": "3.0.8"
+    "upath": "3.0.8",
+    "vitest": "5.0.5"
   },
   "engines": {
     "node": ">=24.10.0",

@@ -6,7 +6,8 @@
     "module": "ES2015",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.esm",
     "rootDir": "lib",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "types": ["node"]
   },
   "exclude": ["test", "**/*.spec.ts"]
 }
