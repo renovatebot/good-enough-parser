@@ -13,4 +13,18 @@ export {
   str,
   buildRoot,
 } from './builder.ts';
+export type {
+  AltBuilder,
+  BeginBuilder,
+  CommentBuilder,
+  EndBuilder,
+  ManyBuilder,
+  NumBuilder,
+  OpBuilder,
+  SeqBuilder,
+  StrBuilder,
+  SymBuilder,
+  TreeBuilder,
+  VoidBuilder,
+} from './builder.ts';
 export * from './types.ts';
