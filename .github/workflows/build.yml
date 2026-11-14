@@ -29,7 +29,7 @@ jobs:
       MISE_EXEC_AUTO_INSTALL: 'false'
 
     steps:
-      - uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+      - uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
         with:
           save-cache: true
 
@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
 
       - name: build
         run: pnpm build
@@ -94,7 +94,7 @@ jobs:
       id-token: write # required for codecov OIDC
 
     steps:
-      - uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+      - uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
         with:
           save-cache: true
           node-version: ${{ matrix.node }}
@@ -147,7 +147,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
         with:
           checkout: false
 
